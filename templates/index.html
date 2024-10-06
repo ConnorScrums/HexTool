@@ -12,7 +12,16 @@
         <p>Upload a binary file to hash!</p>
         <input type="file" name="file" /> 
         <input type = "submit" value="Upload"> 
+        <label for="hashing-options">Choose the hashing option:</label>
+        <select id="hashing-options" name="hashing-options">
+            <option value="division-method-hasher">Division Method</option>
+        </select>
     </form> 
+    {% if hash %}
+        <p>
+            {% print(hash) %}
+        </p>
+    {% endif %}
 </body>
 </html>
 
