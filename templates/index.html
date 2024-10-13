@@ -16,12 +16,19 @@
         <select id="hashing-options" name="hashing-options">
             <option value="division-method-hasher">Division Method</option>
         </select>
+
+        {% for category, message in get_flashed_messages(with_categories=True) %}
+          <div class="alert-{{category}}">
+            {{ message }}
+          </div>
+        {% endfor %}
+        {% if hash %}
+            <p>
+              Hash: {% print(hash) %}
+            </p>
+            <input type = "submit" name='Clear' value="Clear Hash"> 
+        {% endif %}
     </form> 
-    {% if hash %}
-        <p>
-            {% print(hash) %}
-        </p>
-    {% endif %}
 </body>
 </html>
 

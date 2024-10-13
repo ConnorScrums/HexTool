@@ -17,8 +17,25 @@ h1 {
 p {
     text-align: center;
     font-size: 1.2em;
-    color: #495057;
+    color: #e2480b;
 }
+
+.alert-failed {
+    text-align: center;
+    color: white;
+    margin: 10px;
+    padding: 20px;
+    background-color: red;
+}
+  
+.alert-success {
+    text-align: center;
+    background-color: blue;
+    color: white;
+    margin: 10px;
+    padding: 20px;
+}
+  
 
 form {
     text-align:center
