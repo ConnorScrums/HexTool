@@ -1,26 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>upload the file : GFG</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-</head>
+{% extends "base.html" %}
+
+{% block body %}
 <body>
-    <form class="container" method = "post" enctype="multipart/form-data"> 
+    <form class="container" method = "post" action="{{ url_for('home') }}" enctype="multipart/form-data"> 
         <h1>Agile Team Two's Hextool</h1>
         <p>Upload a binary file to hash!</p>
-        <input type="file" name="file" /> 
-        <input type = "submit" value="Upload"> 
-        <label for="hashing-options">Choose the hashing option:</label>
-        <select id="hashing-options" name="hashing-options">
+        <input class="form-control form-control-lg" type="file" name="file">
+        <label for="hashing-options" style="margin: 20px">Choose the hashing option:</label>
+        <select class="form-select" aria-label="Default select example " id="hashing-options" name="hashing-options">
+            <!-- <option selected>Hashing Options</option> TODO -->
             <option value="division-method-hasher">Division Method</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
         </select>
-
+        <input class="btn btn-primary" type="submit" value="Upload" style="margin-bottom: 20px; margin-top: 20px;"></input>
         {% for category, message in get_flashed_messages(with_categories=True) %}
-          <div class="alert-{{category}}">
-            {{ message }}
+          {% if category == "failed"%}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <strong>{{ message }}</strong>
+            </div>
+          {% endif %}
+          {% if category == "success"%}
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>{{ message }}</strong>
           </div>
+          {% endif %}
         {% endfor %}
         {% if hash %}
             <p>
@@ -30,5 +34,4 @@
         {% endif %}
     </form> 
 </body>
-</html>
-
+{% endblock %}
