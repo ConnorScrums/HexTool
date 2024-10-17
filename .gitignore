@@ -8,7 +8,12 @@ Lib/
 Scripts/
 uploads/*
 .ruff_cache/
-docs/*
+
+
+docs/Makefile
+docs/make.bat
+docs/source/*
 !docs/source/conf.py
-!docs/build
-docs/build/doctrees
+docs/build/doctrees/*
+docs/html/_sources/*
+*inv
