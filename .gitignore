@@ -7,3 +7,14 @@ Include/
 Lib/
 Scripts/
 uploads/*
+.ruff_cache/
+
+
+docs/Makefile
+docs/make.bat
+docs/source/*
+!docs/source/conf.py
+docs/build/doctrees/*
+docs/html/_sources/*
+*inv
+*.buildinfo
