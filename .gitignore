@@ -8,3 +8,5 @@ Lib/
 Scripts/
 uploads/*
 .env
+.ruff_cache/
+docs/

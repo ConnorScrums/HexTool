@@ -23,6 +23,7 @@ class HexTool:
 
     def set_hash_method(self, hash_method: str):
         """Hashing method factory.
+
         Args:
             hash_method (str): Hash method chosen from the list on the site.
 
