@@ -17,3 +17,4 @@ docs/source/*
 docs/build/doctrees/*
 docs/html/_sources/*
 *inv
+*.buildinfo
