@@ -8,3 +8,12 @@ repos:
       args: [ --fix ]
     # Run the formatter.
     - id: ruff-format
+
+- repo: local
+  hooks:
+    - id: generate-sphinx-docs
+      name: Generate Sphinx Docs
+      entry: bash -c "cd docs && make clean && make singlehtml"
+      language: system
+      pass_filenames: false
+      always_run: true

@@ -17,24 +17,23 @@ acc_creation = account_creation.AccountCreation()
 def home():
     """Home page of the HexTool application."""
     if request.method == "POST":
-      f = request.files["file"]
-      if f: # File exists
-        fileLength = f.seek(0, os.SEEK_END) # Get file length
-        f.seek(0, os.SEEK_SET) # Seek back to start position of stream
-        if f.filename == '' or fileLength == 0:
-          flash("The file failed to upload!", "failed")
-        else:
-          hash_method = request.form.get("hashing-options")
-          if f.filename != "":
-              file: str = os.path.join(app.config["UPLOAD_FOLDER"], f.filename)
-              if not os.path.exists(file):
-                  f.save(file)
-              with open(file, "rb") as binary:
-                  raw_bytes = binary.raw.read()
-              HexTool.set_hash_method(hash_method=hash_method)
-              return render_template(
-                  "index.html", hash=HexTool.use_hash_method(raw_bytes)
-              )
+        f = request.files["file"]
+        if f: # File exists
+            fileLength = f.seek(0, os.SEEK_END) # Get file length
+            f.seek(0, os.SEEK_SET) # Seek back to start position of stream
+            if f.filename == '' or fileLength == 0:
+                flash("The file failed to upload!", "failed")
+            else:
+                hash_method = request.form.get("hashing-options")
+                file: str = os.path.join(app.config["UPLOAD_FOLDER"], f.filename)
+                if not os.path.exists(file):
+                    f.save(file)
+                with open(file, "rb") as binary:
+                    raw_bytes = binary.raw.read()
+                HexTool.set_hash_method(hash_method=hash_method)
+                return render_template(
+                    "index.html", hash=HexTool.use_hash_method(raw_bytes)
+                )
     return render_template("index.html")
 
 @app.route("/account_creation", methods = ['GET', 'POST'])
