@@ -8,4 +8,7 @@ Lib/
 Scripts/
 uploads/*
 .ruff_cache/
-docs/
+docs/*
+!docs/source/conf.py
+!docs/build
+docs/build/doctrees

@@ -21,9 +21,9 @@ def home():
     if request.method == "POST":
         f = request.files["file"]
         if f:  # File exists
-            fileLength = f.seek(0, os.SEEK_END)  # Get file length
+            file_length = f.seek(0, os.SEEK_END)  # Get file length
             f.seek(0, os.SEEK_SET)  # Seek back to start position of stream
-            if f.filename == "" or fileLength == 0:
+            if f.filename == "" or file_length == 0:
                 flash("The file failed to upload!", "failed")
             else:
                 hash_method = request.form.get("hashing-options")

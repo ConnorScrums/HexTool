@@ -30,7 +30,7 @@ class HexTool:
         if hash_method == "division-method-hasher":
             self.__current_hasher = self.division_method_hasher
         elif hash_method == "multiplication-method-hasher":
-            return self.multiplication_method_hasher
+            self.__current_hasher = self.multiplication_method_hasher
         else:
             self.__current_hasher = None
 
