@@ -6,7 +6,9 @@
 git clone git@github.com:ConnorScrums/HexTool.git
 python -m venv HexTool
 cd HexTool
-Scripts\activate
+source bin/activate (OS X & Linux)
+Scripts\activate (Windows)
+pip install -r requirements.txt
 python3 app.py
 ```
 
