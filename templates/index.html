@@ -8,10 +8,9 @@
         <input class="form-control form-control-lg" type="file" name="file">
         <label for="hashing-options" style="margin: 20px">Choose the hashing option:</label>
         <select class="form-select" aria-label="Default select example " id="hashing-options" name="hashing-options">
-            <!-- <option selected>Hashing Options</option> TODO -->
+            <!-- <option selected>Hashing Options</option> TODO: Can refine alert to no hashing method selected -->
             <option value="division-method-hasher">Division Method</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            <option value="multiplication-method-hasher">Multiplication Method</option>
         </select>
         <input class="btn btn-primary" type="submit" value="Upload" style="margin-bottom: 20px; margin-top: 20px;"></input>
         {% for category, message in get_flashed_messages(with_categories=True) %}
