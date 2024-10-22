@@ -2,6 +2,7 @@ import os
 from flask import Flask, render_template, request, flash
 from fileinput import filename
 import hex_tool 
+import account_creation
 
 UPLOAD_FOLDER = './uploads'
 app = Flask(__name__)
@@ -10,6 +11,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
 HexTool = hex_tool.HexTool()
+AccountCreation = account_creation.AccountCreation()
 
 @app.route("/", methods = ['GET', 'POST'])
 def home():
@@ -35,7 +37,25 @@ def home():
           return render_template('index.html', hash=hash)
 
   return render_template('index.html')
-  
+
+@app.route("/account_creation", methods = ['GET', 'POST']) 
+def accountCreation():
+  return render_template('account_creation.html')
+
+@app.route("/create_account", methods = ['GET', 'POST'])
+def createAccount():
+  print("in createAccount")
+  output = request.form.to_dict()
+  print(output)
+  email = output['email']
+  password = output ['psw']
+  AccountCreation.createAccount(email, password)
+  return render_template('index.html')
+
+@app.route("/cancel", methods = ['POST'])
+def cancel():
+  print("in cancel")
+  return render_template('index.html')
 
 if __name__ == "__main__":
   app.run(debug=True)
