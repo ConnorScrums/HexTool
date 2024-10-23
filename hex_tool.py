@@ -10,7 +10,7 @@ class HexTool:
         self.division_method_hasher = DivisionMethodHasher()
         self.multiplication_method_hasher = MultiplicationHasher()
         self.murmurhash_32_method_hasher = MurmurHash32MethodHasher()
-        self.folding_method_hasher = FoldingMethodHasher();
+        self.folding_method_hasher = FoldingMethodHasher()
 
     def get_hash_method(self, hash_method: str) -> Hasher:
         ## TODO :: Add more hashing methods
