@@ -78,6 +78,25 @@ documentation for details.</p>
 <span id="app-module"></span><h3>app module<a class="headerlink" href="#module-app" title="Link to this heading"></a></h3>
 <p>Module providing the entry point to our HexTool application.</p>
 <dl class="py function">
+<dt class="sig sig-object py" id="app.acc_creation_render">
+<span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">acc_creation_render</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.acc_creation_render" title="Link to this definition"></a></dt>
+<dd><p>Display the account creation page</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="app.cancel">
+<span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">cancel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.cancel" title="Link to this definition"></a></dt>
+<dd><p>Render the homepage when user clicks cancel
+during account creation</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="app.create_acc">
+<span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">create_acc</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.create_acc" title="Link to this definition"></a></dt>
+<dd><p>Grab data from form and create account</p>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="app.home">
 <span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">home</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.home" title="Link to this definition"></a></dt>
 <dd><p>Home page of the HexTool application.</p>
@@ -291,6 +310,56 @@ hash function suitable for general hash-based lookup</p>
 <dt class="sig sig-object py" id="src.hex_tool.HexTool.use_hash_method">
 <span class="sig-name descname"><span class="pre">use_hash_method</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_bytes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#src.hashes.hash.Hash" title="src.hashes.hash.Hash"><span class="pre">Hash</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#src.hex_tool.HexTool.use_hash_method" title="Link to this definition"></a></dt>
 <dd><p>Hash method user.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-src.account_creation">
+<span id="src-account-creation-module"></span><h4>src.account_creation module<a class="headerlink" href="#module-src.account_creation" title="Link to this heading"></a></h4>
+<p>AccountCreation, connect to DB and create a
+new user account with input from the
+account_creation webpage</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.account_creation.AccountCreation">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.account_creation.</span></span><span class="sig-name descname"><span class="pre">AccountCreation</span></span><a class="headerlink" href="#src.account_creation.AccountCreation" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Handle account creation</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.account_creation.AccountCreation.connect_to_database">
+<span class="sig-name descname"><span class="pre">connect_to_database</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.account_creation.AccountCreation.connect_to_database" title="Link to this definition"></a></dt>
+<dd><p>Connect to the DB, returns the connection &amp; cursor</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.account_creation.AccountCreation.create_account">
+<span class="sig-name descname"><span class="pre">create_account</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">email</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.account_creation.AccountCreation.create_account" title="Link to this definition"></a></dt>
+<dd><p>Takes input from webpage and inserts into users table in DB</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-src.database_password_helper">
+<span id="src-database-password-helper-module"></span><h4>src.database_password_helper module<a class="headerlink" href="#module-src.database_password_helper" title="Link to this heading"></a></h4>
+<p>Password Salting, Hashing and
+Verification</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.database_password_helper.DatabasePasswordHelper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.database_password_helper.</span></span><span class="sig-name descname"><span class="pre">DatabasePasswordHelper</span></span><a class="headerlink" href="#src.database_password_helper.DatabasePasswordHelper" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Handle Password Salting,
+Hashing and Verification</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.database_password_helper.DatabasePasswordHelper.hash_password">
+<span class="sig-name descname"><span class="pre">hash_password</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">password</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.database_password_helper.DatabasePasswordHelper.hash_password" title="Link to this definition"></a></dt>
+<dd><p>Password Salting and Hashing</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.database_password_helper.DatabasePasswordHelper.verify_password">
+<span class="sig-name descname"><span class="pre">verify_password</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stored_password</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">provided_password</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.database_password_helper.DatabasePasswordHelper.verify_password" title="Link to this definition"></a></dt>
+<dd><p>Password Verification for login</p>
 </dd></dl>
 
 </dd></dl>

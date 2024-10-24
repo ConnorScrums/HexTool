@@ -21,6 +21,8 @@ repos:
       args: ["--ignore-paths=docs"]
       additional_dependencies:
         - flask
+        - python-dotenv
+        - pymysql
 
 - repo: local
   hooks:
