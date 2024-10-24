@@ -28,7 +28,7 @@ repos:
   hooks:
     - id: generate-sphinx-docs
       name: Generate Sphinx Docs
-      entry: bash -c "cd docs && make clean && make singlehtml"
+      entry: bash -c "cd docs && make clean && make html"
       language: system
       pass_filenames: false
       always_run: true
