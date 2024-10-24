@@ -1,7 +1,0 @@
-hasher module
-=============
-
-.. automodule:: hasher
-   :members:
-   :undoc-members:
-   :show-inheritance:

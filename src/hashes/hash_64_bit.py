@@ -1,6 +1,6 @@
 """Interprets an item as a 64-bit hash."""
 
-from hash import Hash
+from .hash import Hash
 
 
 class Hash64Bit(Hash):

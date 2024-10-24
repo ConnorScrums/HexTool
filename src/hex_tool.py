@@ -1,11 +1,11 @@
 """Hashing method factory that allows for easy switching of Hashing Methods."""
 
 from typing import Optional
-from division_method_hasher import DivisionMethodHasher
-from multiplication_method_hasher import MultiplicationHasher
-from mumurhash_32_method_hasher import MurmurHash32MethodHasher
-from hasher import Hasher
-from hash import Hash
+from .hashers.division_method_hasher import DivisionMethodHasher
+from .hashers.multiplication_method_hasher import MultiplicationHasher
+from .hashers.mumurhash_32_method_hasher import MurmurHash32MethodHasher
+from .hashers.hasher import Hasher
+from .hashes.hash import Hash
 
 
 class HexTool:
@@ -40,11 +40,7 @@ class HexTool:
             self.__current_hasher = None
 
     def use_hash_method(self, raw_bytes: bytes) -> Optional[Hash]:
-        """Hash method user.
-
-        Todo:
-            * Add more hashing methods
-        """
+        """Hash method user."""
 
         if self.__current_hasher:
             return self.__current_hasher(raw_bytes)

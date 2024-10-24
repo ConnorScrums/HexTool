@@ -1,7 +1,0 @@
-division\_method\_hasher module
-===============================
-
-.. automodule:: division_method_hasher
-   :members:
-   :undoc-members:
-   :show-inheritance:

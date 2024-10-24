@@ -8,7 +8,10 @@
 import os
 import sys
 
+sys.path.insert(0, os.path.abspath("../../"))
 sys.path.insert(0, os.path.abspath("../../src/"))
+sys.path.insert(0, os.path.abspath("../../src/hashers"))
+sys.path.insert(0, os.path.abspath("../../src/hashes"))
 project = "HexTool"
 copyright = "2024, Anthony Goncharenko, Kaan Kayis, Connor Keenan, Vincent Liang, Nicholas Nasta, Jay Newman"
 author = "Anthony Goncharenko, Kaan Kayis, Connor Keenan, Vincent Liang, Nicholas Nasta, Jay Newman"

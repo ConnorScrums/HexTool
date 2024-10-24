@@ -1,7 +1,7 @@
 """Abstract Hasher Class giving the definition of how a Hasher behaves."""
 
 from abc import ABC, abstractmethod
-from hash import Hash
+from ..hashes.hash import Hash
 
 
 class Hasher(ABC):

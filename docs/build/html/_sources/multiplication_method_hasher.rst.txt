@@ -1,7 +1,0 @@
-multiplication\_method\_hasher module
-=====================================
-
-.. automodule:: multiplication_method_hasher
-   :members:
-   :undoc-members:
-   :show-inheritance:

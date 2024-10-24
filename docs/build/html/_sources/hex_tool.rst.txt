@@ -1,7 +1,0 @@
-hex\_tool module
-================
-
-.. automodule:: hex_tool
-   :members:
-   :undoc-members:
-   :show-inheritance:

@@ -1,8 +1,8 @@
 """Adds the remainder of a modulus to a 64 bit hash, for each byte in the input."""
 
-from hash import Hash
-from hash_64_bit import Hash64Bit
-from hasher import Hasher
+from ..hashes.hash import Hash
+from ..hashes.hash_64_bit import Hash64Bit
+from .hasher import Hasher
 
 
 class DivisionMethodHasher(Hasher):

@@ -1,7 +1,0 @@
-hash\_64\_bit module
-====================
-
-.. automodule:: hash_64_bit
-   :members:
-   :undoc-members:
-   :show-inheritance:
