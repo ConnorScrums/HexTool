@@ -1,0 +1,29 @@
+src.hashes package
+==================
+
+Submodules
+----------
+
+src.hashes.hash module
+----------------------
+
+.. automodule:: src.hashes.hash
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+src.hashes.hash\_64\_bit module
+-------------------------------
+
+.. automodule:: src.hashes.hash_64_bit
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: src.hashes
+   :members:
+   :undoc-members:
+   :show-inheritance:
