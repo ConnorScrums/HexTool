@@ -14,6 +14,7 @@ app.template_folder = os.path.join(os.path.abspath("."), "templates")
 app.static_folder = os.path.join(os.path.abspath("."), "static")
 
 HexTool = hex_tool.HexTool()
+acc_creation = account_creation.AccountCreation()
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -62,7 +63,6 @@ def create_acc():
     """
     Grab data from form and create account
     """
-    acc_creation = account_creation.AccountCreation()
     output = request.form.to_dict()
     email = output["email"]
     password = output["psw"]
