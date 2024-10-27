@@ -49,7 +49,11 @@
 <li class="toctree-l3"><a class="reference internal" href="#app.acc_creation_render"><code class="docutils literal notranslate"><span class="pre">acc_creation_render()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#app.cancel"><code class="docutils literal notranslate"><span class="pre">cancel()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#app.create_acc"><code class="docutils literal notranslate"><span class="pre">create_acc()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#app.goto_documentation"><code class="docutils literal notranslate"><span class="pre">goto_documentation()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#app.home"><code class="docutils literal notranslate"><span class="pre">home()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#app.serve_documentation"><code class="docutils literal notranslate"><span class="pre">serve_documentation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#app.serve_modules"><code class="docutils literal notranslate"><span class="pre">serve_modules()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#app.serve_static"><code class="docutils literal notranslate"><span class="pre">serve_static()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="src.html">src package</a></li>
@@ -59,7 +63,11 @@
 <li class="toctree-l2"><a class="reference internal" href="#app.acc_creation_render"><code class="docutils literal notranslate"><span class="pre">acc_creation_render()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#app.cancel"><code class="docutils literal notranslate"><span class="pre">cancel()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#app.create_acc"><code class="docutils literal notranslate"><span class="pre">create_acc()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#app.goto_documentation"><code class="docutils literal notranslate"><span class="pre">goto_documentation()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#app.home"><code class="docutils literal notranslate"><span class="pre">home()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#app.serve_documentation"><code class="docutils literal notranslate"><span class="pre">serve_documentation()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#app.serve_modules"><code class="docutils literal notranslate"><span class="pre">serve_modules()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#app.serve_static"><code class="docutils literal notranslate"><span class="pre">serve_static()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="src.html">src package</a></li>
@@ -115,9 +123,33 @@ during account creation</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="app.goto_documentation">
+<span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">goto_documentation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/app.html#goto_documentation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.goto_documentation" title="Link to this definition"></a></dt>
+<dd><p>Read the documentation for the HexTool</p>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="app.home">
 <span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">home</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/app.html#home"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.home" title="Link to this definition"></a></dt>
 <dd><p>Home page of the HexTool application.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="app.serve_documentation">
+<span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">serve_documentation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/app.html#serve_documentation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.serve_documentation" title="Link to this definition"></a></dt>
+<dd><p>Serve static files from the Sphinx documentation build directory.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="app.serve_modules">
+<span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">serve_modules</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/app.html#serve_modules"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.serve_modules" title="Link to this definition"></a></dt>
+<dd><p>Serve modules files from the Sphinx documentation build directory.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="app.serve_static">
+<span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">serve_static</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/app.html#serve_static"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.serve_static" title="Link to this definition"></a></dt>
+<dd><p>Serve static files from the Sphinx documentation build directory.</p>
 </dd></dl>
 
 </section>
