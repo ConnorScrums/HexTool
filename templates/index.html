@@ -12,6 +12,8 @@
             <option value="division-method-hasher">Division Method</option>
             <option value="multiplication-method-hasher">Multiplication Method</option>
             <option value="murmurhash-32-method-hasher">MurmurHash 32-bit Method</option>
+            <option value="mid-square-method-hasher">Mid-Square Method</option>
+            <option value="folding-method-hasher">Folding Method</option>
         </select>
         <input class="btn btn-primary" type="submit" value="Upload" style="margin-bottom: 20px; margin-top: 20px;"></input>
         {% for category, message in get_flashed_messages(with_categories=True) %}
@@ -32,6 +34,8 @@
             </p>
             <input type = "submit" name='Clear' value="Clear Hash"> 
         {% endif %}
-    </form> 
+    </form>
+    <p><a href="{{ url_for('acc_creation_render') }}">Create an account!</a></p>
+    <p><a href="{{ url_for('goto_documentation') }}">Read the Docs Here</a></p>
 </body>
 {% endblock %}
