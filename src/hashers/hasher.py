@@ -1,7 +1,7 @@
 """Abstract Hasher Class giving the definition of how a Hasher behaves."""
 
 from abc import ABC, abstractmethod
-from hash import Hash
+from ..hashes.hash import Hash
 
 
 class Hasher(ABC):
@@ -14,8 +14,10 @@ class Hasher(ABC):
     @abstractmethod
     def hash(self, raw_bytes: bytes) -> Hash:
         """Calculates the hash by a concrete method for each byte and adding it to an N-bit hash.
+
         Args:
             raw_bytes (bytes): Array of bytes of the input.
+
         Returns:
             The hash of the input bytes.
         """

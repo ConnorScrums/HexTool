@@ -1,0 +1,45 @@
+src.hashers package
+===================
+
+Submodules
+----------
+src.hashers.hasher module
+-------------------------
+
+.. automodule:: src.hashers.hasher
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+src.hashers.division\_method\_hasher module
+-------------------------------------------
+
+.. automodule:: src.hashers.division_method_hasher
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+src.hashers.multiplication\_method\_hasher module
+-------------------------------------------------
+
+.. automodule:: src.hashers.multiplication_method_hasher
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+src.hashers.mumurhash\_32\_method\_hasher module
+------------------------------------------------
+
+.. automodule:: src.hashers.mumurhash_32_method_hasher
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: src.hashers
+   :members:
+   :undoc-members:
+   :show-inheritance:

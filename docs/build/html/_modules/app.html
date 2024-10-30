@@ -1,0 +1,246 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>app &mdash; HexTool 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            HexTool
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">HexTool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../app.html">app module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../src.html">src package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../src.hashers.html">src.hashers package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../src.hashes.html">src.hashes package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">HexTool</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Module code</a></li>
+      <li class="breadcrumb-item active">app</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for app</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Module providing the entry point to our HexTool application.&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">render_template</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">flash</span><span class="p">,</span> <span class="n">send_from_directory</span>
+
+<span class="kn">from</span> <span class="nn">src</span> <span class="kn">import</span> <span class="n">hex_tool</span>
+<span class="kn">from</span> <span class="nn">src</span> <span class="kn">import</span> <span class="n">account_creation</span>
+<span class="c1"># from src import database_password_helper</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="n">app</span><span class="o">.</span><span class="n">secret_key</span> <span class="o">=</span> <span class="s2">&quot;ThisKeyIsSecretHehe&quot;</span>
+<span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;UPLOAD_FOLDER&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">),</span> <span class="s2">&quot;uploads&quot;</span><span class="p">)</span>
+<span class="n">app</span><span class="o">.</span><span class="n">template_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">),</span> <span class="s2">&quot;templates&quot;</span><span class="p">)</span>
+<span class="n">app</span><span class="o">.</span><span class="n">static_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">),</span> <span class="s2">&quot;static&quot;</span><span class="p">)</span>
+<span class="n">docs_html_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">),</span> <span class="s2">&quot;docs&quot;</span><span class="p">,</span> <span class="s2">&quot;build&quot;</span><span class="p">,</span> <span class="s2">&quot;html&quot;</span><span class="p">)</span>
+<span class="n">docs_static_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">docs_html_path</span><span class="p">,</span> <span class="s2">&quot;_static&quot;</span><span class="p">)</span>
+<span class="n">docs_modules_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">docs_html_path</span><span class="p">,</span> <span class="s2">&quot;_modules&quot;</span><span class="p">)</span>
+
+<span class="n">HexTool</span> <span class="o">=</span> <span class="n">hex_tool</span><span class="o">.</span><span class="n">HexTool</span><span class="p">()</span>
+<span class="n">acc_creation</span> <span class="o">=</span> <span class="n">account_creation</span><span class="o">.</span><span class="n">AccountCreation</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="home">
+<a class="viewcode-back" href="../app.html#app.home">[docs]</a>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="s2">&quot;POST&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">home</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Home page of the HexTool application.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;POST&quot;</span><span class="p">:</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">files</span><span class="p">[</span><span class="s2">&quot;file&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">f</span><span class="p">:</span>  <span class="c1"># File exists</span>
+            <span class="n">file_length</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">SEEK_END</span><span class="p">)</span>  <span class="c1"># Get file length</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">SEEK_SET</span><span class="p">)</span>  <span class="c1"># Seek back to start position of stream</span>
+            <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">filename</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="ow">or</span> <span class="n">file_length</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">flash</span><span class="p">(</span><span class="s2">&quot;The file failed to upload!&quot;</span><span class="p">,</span> <span class="s2">&quot;failed&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">hash_method</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;hashing-options&quot;</span><span class="p">)</span>
+                <span class="n">file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;UPLOAD_FOLDER&quot;</span><span class="p">],</span> <span class="n">f</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
+                    <span class="n">f</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+                <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">binary</span><span class="p">:</span>
+                    <span class="n">raw_bytes</span> <span class="o">=</span> <span class="n">binary</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+                <span class="n">HexTool</span><span class="o">.</span><span class="n">set_hash_method</span><span class="p">(</span><span class="n">hash_method</span><span class="o">=</span><span class="n">hash_method</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span>
+                    <span class="s2">&quot;index.html&quot;</span><span class="p">,</span> <span class="nb">hash</span><span class="o">=</span><span class="n">HexTool</span><span class="o">.</span><span class="n">use_hash_method</span><span class="p">(</span><span class="n">raw_bytes</span><span class="p">)</span>
+                <span class="p">)</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;index.html&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="cancel">
+<a class="viewcode-back" href="../app.html#app.cancel">[docs]</a>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/cancel&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">cancel</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Render the homepage when user clicks cancel</span>
+<span class="sd">    during account creation</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;index.html&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="acc_creation_render">
+<a class="viewcode-back" href="../app.html#app.acc_creation_render">[docs]</a>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/account_creation&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="s2">&quot;POST&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">acc_creation_render</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Display the account creation page</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;account_creation.html&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="create_acc">
+<a class="viewcode-back" href="../app.html#app.create_acc">[docs]</a>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/create_account&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="s2">&quot;POST&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">create_acc</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Grab data from form and create account</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+    <span class="n">email</span> <span class="o">=</span> <span class="n">output</span><span class="p">[</span><span class="s2">&quot;email&quot;</span><span class="p">]</span>
+    <span class="n">password</span> <span class="o">=</span> <span class="n">output</span><span class="p">[</span><span class="s2">&quot;psw&quot;</span><span class="p">]</span>
+    <span class="n">acc_creation</span><span class="o">.</span><span class="n">create_account</span><span class="p">(</span><span class="n">email</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;index.html&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="goto_documentation">
+<a class="viewcode-back" href="../app.html#app.goto_documentation">[docs]</a>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/documentation&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="s2">&quot;POST&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">goto_documentation</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Read the documentation for the HexTool</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">docs_html_path</span><span class="p">,</span> <span class="s2">&quot;index.html&quot;</span><span class="p">)):</span>
+        <span class="k">return</span> <span class="n">send_from_directory</span><span class="p">(</span><span class="n">docs_html_path</span><span class="p">,</span> <span class="s2">&quot;index.html&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;index.html&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="serve_documentation">
+<a class="viewcode-back" href="../app.html#app.serve_documentation">[docs]</a>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/&lt;filename&gt;&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">serve_documentation</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Serve static files from the Sphinx documentation build directory.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">docs_html_path</span><span class="p">,</span> <span class="n">filename</span><span class="p">)):</span>
+        <span class="k">return</span> <span class="n">send_from_directory</span><span class="p">(</span><span class="n">docs_html_path</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;index.html&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="serve_static">
+<a class="viewcode-back" href="../app.html#app.serve_static">[docs]</a>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/_static/&lt;path:filename&gt;&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">serve_static</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Serve static files from the Sphinx documentation build directory.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">docs_static_path</span><span class="p">,</span> <span class="n">filename</span><span class="p">)):</span>
+        <span class="k">return</span> <span class="n">send_from_directory</span><span class="p">(</span><span class="n">docs_static_path</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;index.html&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="serve_modules">
+<a class="viewcode-back" href="../app.html#app.serve_modules">[docs]</a>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/_modules/&lt;path:filename&gt;&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">serve_modules</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Serve modules files from the Sphinx documentation build directory.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">docs_modules_path</span><span class="p">,</span> <span class="n">filename</span><span class="p">)):</span>
+        <span class="k">return</span> <span class="n">send_from_directory</span><span class="p">(</span><span class="n">docs_modules_path</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;index.html&quot;</span><span class="p">)</span></div>
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Anthony Goncharenko, Kaan Kayis, Connor Keenan, Vincent Liang, Nicholas Nasta, Jay Newman.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
