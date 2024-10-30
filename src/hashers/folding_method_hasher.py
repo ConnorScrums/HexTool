@@ -2,9 +2,9 @@
 Folding hash implementation, breaks up key value into 
 segments that are added to form a hash value
 """
-from hash import Hash
-from hash_64_bit import Hash64Bit
-from hasher import Hasher
+from ..hashes.hash import Hash
+from ..hashes.hash_64_bit import Hash64Bit
+from .hasher import Hasher
 
 class FoldingMethodHasher(Hasher):
     """
