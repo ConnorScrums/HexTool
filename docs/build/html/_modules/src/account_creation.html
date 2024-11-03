@@ -115,14 +115,31 @@
         <span class="n">load_dotenv</span><span class="p">()</span>
         <span class="n">db_helper</span> <span class="o">=</span> <span class="n">DatabasePasswordHelper</span><span class="p">()</span>
         <span class="n">con</span><span class="p">,</span> <span class="n">cursor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">connect_to_database</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>
         <span class="n">password</span> <span class="o">=</span> <span class="n">db_helper</span><span class="o">.</span><span class="n">hash_password</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>
-        <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;INSERT INTO users (username, password) VALUES (</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">)&quot;</span>
-        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="p">(</span><span class="n">email</span><span class="p">,</span> <span class="n">password</span><span class="p">))</span>
-        <span class="n">con</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">does_email_exist</span><span class="p">(</span><span class="n">email</span><span class="p">,</span> <span class="n">cursor</span><span class="p">):</span>
+            <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;INSERT INTO users (username, password) VALUES (</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">)&quot;</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="p">(</span><span class="n">email</span><span class="p">,</span> <span class="n">password</span><span class="p">))</span>
+            <span class="n">con</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+            <span class="n">con</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="k">return</span> <span class="kc">True</span>
 
-        <span class="n">con</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+        <span class="n">con</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">return</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="AccountCreation.does_email_exist">
+<a class="viewcode-back" href="../../src.html#src.account_creation.AccountCreation.does_email_exist">[docs]</a>
+    <span class="k">def</span> <span class="nf">does_email_exist</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">cursor</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Checks if user with entered email is already in the DB</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT * FROM users WHERE username = </span><span class="si">%s</span><span class="s2">&quot;</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="p">(</span><span class="n">email</span><span class="p">))</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">results</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+
+        <span class="k">return</span> <span class="kc">False</span></div>
 </div>
 
 </pre></div>

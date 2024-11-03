@@ -52,6 +52,6 @@ class AccountCreation:
         cursor.execute(sql, (email))
         results = cursor.fetchall()
         if results:
-            return bool(True)
+            return True
 
-        return bool(False)
+        return False
