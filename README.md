@@ -16,6 +16,16 @@ You will see a link to ```localhost:5000``` which will take you to the main page
 
 From there, upload your files and get select the hashing method, and we will do the rest.
 
+## Environment File Setup
+```sh
+Ensure the following vars are in the .env file at the same level as app.py:
+DB_ENDPOINT=<our endpoint>
+DB_USERNAME=<our db username>
+DB_PASSWORD=<our db password>
+DB_NAME=<our db name>
+PW_SALT=<our pw salt>
+
+```
 
 ## For Devs
 # Sphinx-Autodocs
