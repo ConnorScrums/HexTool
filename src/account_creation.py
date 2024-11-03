@@ -33,11 +33,22 @@ class AccountCreation:
         load_dotenv()
         db_helper = DatabasePasswordHelper()
         con, cursor = self.connect_to_database()
-        print(password)
         password = db_helper.hash_password(password)
-        print(password)
-        sql = "INSERT INTO users (username, password) VALUES (%s, %s)"
-        cursor.execute(sql, (email, password))
-        con.commit()
+        if not self.does_email_exist(email, cursor):
+            sql = "INSERT INTO users (username, password) VALUES (%s, %s)"
+            cursor.execute(sql, (email, password))
+            con.commit()
+            con.close()
+            return True
+        else:
+            con.close()
+            return False    
 
-        con.close()
+    def does_email_exist(self, email, cursor):
+        sql = "SELECT * FROM users WHERE username = %s"
+        cursor.execute(sql, (email))
+        results = cursor.fetchall()
+        if results:
+            return True
+        else: 
+            return False

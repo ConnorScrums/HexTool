@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Creation Success</title>
+    <style>
+        .link-container {
+            width: 100%; /* Full width */
+            text-align: center; /* Center text */
+        }
+        .centered-link {
+            display: inline-block; /* Make link a block-level element */
+            margin: auto; /* Center it */
+            font-size: 24px; /* Adjust font size */
+        }
+    </style>
+</head>
+<body>
+    <div class="link-container">
+        <h1>Success!</h1>
+        <p>Your account has been created successfully.</p>
+        <a href="{{ url_for('home') }}" class="centered-link">Return to Homepage</a>
+    </div>
+</body>
+
+{% endblock %}
