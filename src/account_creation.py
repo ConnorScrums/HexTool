@@ -40,15 +40,18 @@ class AccountCreation:
             con.commit()
             con.close()
             return True
-        else:
-            con.close()
-            return False    
+
+        con.close()
+        return False
 
     def does_email_exist(self, email, cursor):
+        """
+        Checks if user with entered email is already in the DB
+        """
         sql = "SELECT * FROM users WHERE username = %s"
         cursor.execute(sql, (email))
         results = cursor.fetchall()
         if results:
-            return True
-        else: 
-            return False
+            return bool(True)
+
+        return bool(False)

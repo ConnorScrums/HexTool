@@ -67,14 +67,14 @@ def create_acc():
     Grab data from form and create account
     """
     output = request.form.to_dict()
-    print(output)
     email = output["email"]
     password = output["psw"]
     if acc_creation.create_account(email, password):
         return render_template("account_creation_success.html")
-    else:
-        flash("An account with that email already exists!", "failed")
-        return render_template("account_creation.html")
+
+    flash("An account with that email already exists!", "failed")
+    return render_template("account_creation.html")
+
 
 @app.route("/documentation", methods=["GET", "POST"])
 def goto_documentation():
