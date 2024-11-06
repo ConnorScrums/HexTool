@@ -4,6 +4,8 @@ from typing import Optional
 from .hashers.division_method_hasher import DivisionMethodHasher
 from .hashers.multiplication_method_hasher import MultiplicationHasher
 from .hashers.mumurhash_32_method_hasher import MurmurHash32MethodHasher
+from .hashers.folding_method_hasher import FoldingMethodHasher
+from .hashers.mid_square_method_hasher import MidSquareHasher
 from .hashers.hasher import Hasher
 from .hashes.hash import Hash
 
@@ -20,6 +22,8 @@ class HexTool:
         self.division_method_hasher: Hasher = DivisionMethodHasher()
         self.multiplication_method_hasher: Hasher = MultiplicationHasher()
         self.murmurhash_32_method_hasher: Hasher = MurmurHash32MethodHasher()
+        self.folding_method_hasher: Hasher = FoldingMethodHasher()
+        self.mid_square_method_hasher: Hasher = MidSquareHasher()
 
     def set_hash_method(self, hash_method: str):
         """Hashing method factory.
@@ -36,6 +40,10 @@ class HexTool:
             self.__current_hasher = self.multiplication_method_hasher
         elif hash_method == "murmurhash-32-method-hasher":
             self.__current_hasher = self.murmurhash_32_method_hasher
+        elif hash_method == "folding-method-hasher":
+            self.__current_hasher = self.folding_method_hasher
+        elif hash_method == "mid-square-method-hasher":
+            self.__current_hasher = self.mid_square_method_hasher
         else:
             self.__current_hasher = None
 
