@@ -75,6 +75,15 @@ def create_acc():
     acc_creation.create_account(email, password)
     return render_template("index.html")
 
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    """
+    Display the login page for existing users
+    """
+
+    return render_template("login.html")
+
+#@app.route("signout", methods=["GET", "POST"])
 
 @app.route("/documentation", methods=["GET", "POST"])
 def goto_documentation():
