@@ -3,9 +3,9 @@ from typing import IO
 
 class Checksum:
     """
-    Checksum to verify that the file is not tampered with
+    Calculate the checksum of a file to verify integrity
     """
-    def crc32_checksum_file(self, file_input: IO) -> int:
+    def calculate_checksum(self, file_input: IO) -> int:
         """
         Args:
             file_input: File uploaded to application taken as input
