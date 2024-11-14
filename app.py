@@ -5,6 +5,7 @@ from flask import Flask, render_template, request, flash, send_from_directory
 
 from src import hex_tool
 from src import account_creation
+from src import checksum
 # from src import database_password_helper
 
 app = Flask(__name__)
@@ -18,7 +19,7 @@ docs_modules_path = os.path.join(docs_html_path, "_modules")
 
 HexTool = hex_tool.HexTool()
 acc_creation = account_creation.AccountCreation()
-
+cksum = checksum.Checksum()
 
 @app.route("/", methods=["GET", "POST"])
 def home():
@@ -39,7 +40,9 @@ def home():
                     raw_bytes = binary.raw.read()
                 HexTool.set_hash_method(hash_method=hash_method)
                 return render_template(
-                    "index.html", hash=HexTool.use_hash_method(raw_bytes)
+                    "index.html", 
+                    hash=HexTool.use_hash_method(raw_bytes), 
+                    chksum=cksum.calculate_checksum(file)
                 )
     return render_template("index.html")
 
