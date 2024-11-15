@@ -9,12 +9,12 @@
         <label for="hashing-options" style="margin: 20px">Choose the hashing option:</label>
         <select class="form-select" aria-label="Default select example " id="hashing-options" name="hashing-options">
             <!-- <option selected>Hashing Options</option> TODO: Can refine alert to no hashing method selected -->
+            <option value="sha-1-method-hasher">SHA-1 Method</option>
             <option value="division-method-hasher">Division Method</option>
             <option value="multiplication-method-hasher">Multiplication Method</option>
             <option value="murmurhash-32-method-hasher">MurmurHash 32-bit Method</option>
             <option value="mid-square-method-hasher">Mid-Square Method</option>
             <option value="folding-method-hasher">Folding Method</option>
-            <option value="sha-1-method-hasher">SHA-1 Method</option>
         </select>
         <input class="btn btn-primary" type="submit" value="Upload" style="margin-bottom: 20px; margin-top: 20px;"></input>
         {% for category, message in get_flashed_messages(with_categories=True) %}
