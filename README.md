@@ -34,7 +34,10 @@ PW_SALT=<our pw salt>
 
 # 1. get inside the docs directory
 cd docs
-# 2. Generate the rst files, that will build your html. 
+# 2. Clean out files that may or may not be in docs
+git clean -xdf
+
+# 3. Generate the rst files, that will build your html. 
 # If you added something new and your functions are not showing up in the docs, 
 # then run this command as well.
 sphinx-apidoc.exe -o .\source\ .. # Windows
