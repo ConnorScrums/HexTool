@@ -27,15 +27,23 @@
                     <a class="nav-link active" href="{{ url_for('goto_documentation') }}">Documentation</a>
                 </li>
             </ul>
+            {% if config["USERNAME"] != "" %}
+              <div> {% print(config["USERNAME"]) %}</div>
+            {% endif %}
             <ul class="navbar-nav">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Account
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="{{ url_for('login') }}">Log In</a></li>
-                        <li><a class="dropdown-item" href="{{ url_for('acc_creation_render') }}">Create Account</a></li>
-                        <li><a class="dropdown-item" href="#">Sign Out</a></li>
+                        {% if config["USERNAME"] == "" %}
+                          <li><a class="dropdown-item" href="{{ url_for('login') }}">Log In</a></li>
+                          <li><a class="dropdown-item" href="{{ url_for('acc_creation_render') }}">Create Account</a></li>
+                        {% endif %}
+
+                        {% if config["USERNAME"] != "" %}
+                          <li><a class="dropdown-item" href="{{ url_for('sign_out') }}">Sign Out</a></li>
+                        {% endif %}
                     </ul>
                 </li>
             </ul>

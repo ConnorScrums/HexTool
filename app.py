@@ -6,11 +6,12 @@ from flask import Flask, render_template, request, flash, send_from_directory
 from src import hex_tool
 from src import account_creation
 from src import checksum
-# from src import database_password_helper
+
 
 app = Flask(__name__)
 app.secret_key = "ThisKeyIsSecretHehe"
 app.config["UPLOAD_FOLDER"] = os.path.join(os.path.abspath("."), "uploads")
+app.config["USERNAME"] = ""
 app.template_folder = os.path.join(os.path.abspath("."), "templates")
 app.static_folder = os.path.join(os.path.abspath("."), "static")
 docs_html_path = os.path.join(os.path.abspath("."), "docs", "build", "html")
@@ -86,7 +87,22 @@ def login():
 
     return render_template("login.html")
 
-#@app.route("signout", methods=["GET", "POST"])
+@app.route("/login_attempt", methods=["GET", "POST"])
+def login_attempt():
+    formInput = request.form.to_dict()
+    email = formInput["email"]
+    password = formInput["psw"]
+
+    acc_creation.login(email,password)
+
+    return render_template("index.html")
+
+@app.route("/signout", methods=["GET", "POST"])
+def sign_out():
+    app.config["USERNAME"] = ""
+
+    return render_template("index.html")
+
 
 @app.route("/documentation", methods=["GET", "POST"])
 def goto_documentation():
