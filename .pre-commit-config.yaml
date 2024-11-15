@@ -23,6 +23,7 @@ repos:
         - flask
         - python-dotenv
         - pymysql
+        - tqdm
 
 - repo: local
   hooks:

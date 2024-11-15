@@ -3,6 +3,7 @@ SHA-1 cryptographic hash algorithm that is meant to keep data secured,
 using bitwise operations, modular additions, and compression functions.
 """
 
+from tqdm import tqdm
 from .hasher import Hasher
 from ..hashes.hash import Hash
 
@@ -18,16 +19,19 @@ class SHA1Hasher(Hasher):
 
     def hash(self, raw_bytes: bytes) -> Hash:
         hs = [0x67452301, 0xEFCDAB89, 0x98BADCFE, 0x10325476, 0xC3D2E1F0]
+        raw_bytes = bytearray(raw_bytes)
 
-        raw_bytes += b"\x80"
+        original_bit_len = len(raw_bytes) * 8
+        original_bytes_len = original_bit_len.to_bytes(8, byteorder="big")
 
+        raw_bytes.append(0x80)
         while (len(raw_bytes) * 8) % 512 != 448:
-            raw_bytes += b"\x00"
+            raw_bytes.append(0x00)
 
-        raw_bytes += (len(raw_bytes) * 8).to_bytes(8, byteorder="big")
-        input_bytes = bytearray(raw_bytes)
+        raw_bytes.extend(original_bytes_len)
+        input_bytes = raw_bytes
 
-        for i in range(len(input_bytes), 64):
+        for i in tqdm(range(0, len(input_bytes), 64)):
             chunk = input_bytes[i : i * 64]
 
             w = [0] * 80
@@ -40,7 +44,7 @@ class SHA1Hasher(Hasher):
 
             # Initialize hash value for this chunk
             temp_hs = hs.copy()
-            f, k = 0
+            f, k = 0, 0
             for j in range(80):
                 if 0 <= j <= 19:
                     f = (temp_hs[1] & temp_hs[2]) | (~temp_hs[1] & temp_hs[3])
