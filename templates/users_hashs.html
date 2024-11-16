@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block body %}
+<body>
+    <form class="container" method = "post" action="{{ url_for('hash_history') }}" enctype="multipart/form-data"> 
+{% if config["USERNAME"] != "" %}
+  {% if hashs %}
+
+    {% for hash in hashs %}
+      <div>File: {{ hash[2] }}</div>
+      <div>Hash: {{ hash[3] }}</div>
+      <div>Hash Method: {{ hash[5] }}</div>
+      <div>Check Sum: {{ hash[6] }}</div>
+      <br>
+    {% endfor %}
+
+    <input class="btn btn-primary" type="submit" value="Delete Hashs" style="margin-bottom: 20px; margin-top: 20px;"></input>
+
+  {% else %}
+    <div> There are no previous hashs for: {% print(config["USERNAME"]) %}
+    <br></div>
+
+  {% endif %}
+
+{% else %}
+  <div> You are not logged in </div>
+{% endif %}
+
+</form>
+</body>
+{% endblock %}

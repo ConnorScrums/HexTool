@@ -73,8 +73,10 @@ class AccountCreation:
 
             if results[0][0] == password[:45]:
                 current_app.config["USERNAME"] = email
+                return True
             else:
                 print("INCORRECT PASSWORD")
-                #TODO FLASH MESSAGE
+                #TODO FLASH MESSAGE FOR INCORRECTE EMAIL OR PASSWORD
+                return False
 
             con.close()
