@@ -43,31 +43,31 @@ class DatabaseUtility:
             userId = self.getUserId()
             print("USER ID:")
             print(userId)
-            sql = "INSERT INTO hashs (user_id, hash_result, file_name, hash_method, check_sum) VALUES (%s, %s, %s, %s, %s);"
+            sql = "INSERT INTO hashes (user_id, hash_result, file_name, hash_method, check_sum) VALUES (%s, %s, %s, %s, %s);"
             record = (userId, hash_result, file_name, hash_method, check_sum)
             cursor.execute(sql, record)
             connection.commit()
             connection.close()
 
-    def deleteHashs(self):
+    def deleteHashes(self):
         """
-        Delete all hashs from the database for a user if they are logged in
+        Delete all hashes from the database for a user if they are logged in
         """
         if current_app.config["USERNAME"] != "":
             connection,cursor = self.connectToDatabase()
             id = self.getUserId()
-            sql = "DELETE FROM hashs WHERE user_id = %s;"
+            sql = "DELETE FROM hashes WHERE user_id = %s;"
             cursor.execute(sql, id)
             connection.commit()
             connection.close()
 
-    def getUserHashs(self):
+    def getUserHashes(self):
         """
-        Get all hashs from the database for a user if they are logged in
+        Get all hashes from the database for a user if they are logged in
         """
         id = self.getUserId()
         connection, cursor = self.connectToDatabase()
-        sql = "SELECT * FROM hashs WHERE user_id = %s;"
+        sql = "SELECT * FROM hashes WHERE user_id = %s;"
         cursor.execute(sql, id)
         results = cursor.fetchall()
         if results:

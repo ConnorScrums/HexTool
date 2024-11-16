@@ -122,10 +122,10 @@ def hash_history():
     Get the hash history for the current user
     """
     if request.method == "POST":
-        db_utility.deleteHashs()
+        db_utility.deleteHashes()
 
-    hashs = db_utility.getUserHashs()
-    return render_template("users_hashs.html", hashs=hashs)
+    hashes = db_utility.getUserHashes()
+    return render_template("users_hashes.html", hashes=hashes)
 
 
 @app.route("/documentation", methods=["GET", "POST"])

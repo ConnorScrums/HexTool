@@ -4,9 +4,9 @@
 <body>
     <form class="container" method = "post" action="{{ url_for('hash_history') }}" enctype="multipart/form-data"> 
 {% if config["USERNAME"] != "" %}
-  {% if hashs %}
+  {% if hashes %}
 
-    {% for hash in hashs %}
+    {% for hash in hashes %}
       <div>File: {{ hash[2] }}</div>
       <div>Hash: {{ hash[3] }}</div>
       <div>Hash Method: {{ hash[5] }}</div>
@@ -14,11 +14,11 @@
       <br>
     {% endfor %}
 
-    <input class="btn btn-primary" type="submit" value="Delete Hashs" style="margin-bottom: 20px; margin-top: 20px;"></input>
+    <input class="btn btn-primary" type="submit" value="Delete Hashes" style="margin-bottom: 20px; margin-top: 20px;"></input>
 
   {% else %}
     <div> 
-        There are no previous hashs for: {% print(config["USERNAME"]) %}
+        There are no previous hashes for: {% print(config["USERNAME"]) %}
         <br>
     </div>
 
