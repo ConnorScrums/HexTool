@@ -11,7 +11,6 @@ app = Flask(__name__)
 app.secret_key = "ThisKeyIsSecretHehe"
 app.config["UPLOAD_FOLDER"] = os.path.join(os.path.abspath("."), "uploads")
 app.config["USERNAME"] = ""
-app.config["HASHS"] = []
 app.template_folder = os.path.join(os.path.abspath("."), "templates")
 app.static_folder = os.path.join(os.path.abspath("."), "static")
 docs_html_path = os.path.join(os.path.abspath("."), "docs", "build", "html")
@@ -123,7 +122,6 @@ def hash_history():
     Get the hash history for the current user
     """
     if request.method == "POST":
-        # Delete the hashs
         db_utility.deleteHashs()
 
     hashs = db_utility.getUserHashs()

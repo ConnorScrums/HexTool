@@ -1,7 +1,5 @@
-import os
-import pymysql
+import os, pymysql
 from dotenv import load_dotenv
-from .database_password_helper import DatabasePasswordHelper
 from flask import current_app
 
 class DatabaseUtility:
@@ -19,21 +17,27 @@ class DatabaseUtility:
        )
        connection_cursor = connection.cursor()
        return connection, connection_cursor
-       #TODO MAYBE NEED TO CLOSE DATABASE CONNECTION CHECK THIS
     
     def getUserId(self):
+        """
+        Get the Users Id from the database (Primary Key)
+        """
         load_dotenv()
         connection, cursor = self.connectToDatabase()
         sql = "SELECT idusers FROM users WHERE username = %s"
         cursor.execute(sql, current_app.config["USERNAME"])
         results = cursor.fetchall()
         if results:
-            print(results[0][0])
+            connection.close()
             return results[0][0]
-        
+    
+        connection.close()
         return False
 
     def addHash(self, hash_result, file_name, hash_method, check_sum):
+        """
+        Add the hash data to the database if there is a user logged in
+        """
         if current_app.config["USERNAME"] != "":
             connection, cursor = self.connectToDatabase()
             userId = self.getUserId()
@@ -43,26 +47,32 @@ class DatabaseUtility:
             record = (userId, hash_result, file_name, hash_method, check_sum)
             cursor.execute(sql, record)
             connection.commit()
+            connection.close()
 
     def deleteHashs(self):
+        """
+        Delete all hashs from the database for a user if they are logged in
+        """
         if current_app.config["USERNAME"] != "":
-            print("IN DELETE")
             connection,cursor = self.connectToDatabase()
             id = self.getUserId()
             sql = "DELETE FROM hashs WHERE user_id = %s;"
             cursor.execute(sql, id)
             connection.commit()
-            print("DELETE ALL HASHS SUCCESSFUL")
+            connection.close()
 
     def getUserHashs(self):
+        """
+        Get all hashs from the database for a user if they are logged in
+        """
         id = self.getUserId()
         connection, cursor = self.connectToDatabase()
         sql = "SELECT * FROM hashs WHERE user_id = %s;"
         cursor.execute(sql, id)
         results = cursor.fetchall()
         if results:
-            print(results)
+            connection.close()
             return results
         
+        connection.close()
         return False
-

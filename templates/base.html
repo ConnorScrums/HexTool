@@ -42,9 +42,8 @@
                         {% if config["USERNAME"] == "" %}
                           <li><a class="dropdown-item" href="{{ url_for('login') }}">Log In</a></li>
                           <li><a class="dropdown-item" href="{{ url_for('acc_creation_render') }}">Create Account</a></li>
-                        {% endif %}
+                        {% else %}
 
-                        {% if config["USERNAME"] != "" %}
                           <li><a class="dropdown-item" href="{{ url_for('sign_out') }}">Sign Out</a></li>
                         {% endif %}
                     </ul>

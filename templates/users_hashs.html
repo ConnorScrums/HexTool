@@ -17,8 +17,10 @@
     <input class="btn btn-primary" type="submit" value="Delete Hashs" style="margin-bottom: 20px; margin-top: 20px;"></input>
 
   {% else %}
-    <div> There are no previous hashs for: {% print(config["USERNAME"]) %}
-    <br></div>
+    <div> 
+        There are no previous hashs for: {% print(config["USERNAME"]) %}
+        <br>
+    </div>
 
   {% endif %}
 

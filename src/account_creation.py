@@ -63,7 +63,7 @@ class AccountCreation:
         """
         load_dotenv()
         db_helper = DatabasePasswordHelper()
-        con, cursor = self.connect_to_database()
+        connection, cursor = self.connect_to_database()
         password = db_helper.hash_password(password)
 
         if self.does_email_exist(email, cursor):
@@ -73,10 +73,8 @@ class AccountCreation:
 
             if results[0][0] == password[:45]:
                 current_app.config["USERNAME"] = email
+                connection.close()
                 return True
             else:
-                print("INCORRECT PASSWORD")
-                #TODO FLASH MESSAGE FOR INCORRECTE EMAIL OR PASSWORD
+                connection.close()
                 return False
-
-            con.close()
