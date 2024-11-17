@@ -36,7 +36,7 @@ class DatabaseUtility:
 
     def addHash(self, hash_result, file_name, hash_method, check_sum):
         """
-        Add the hash data to the database if there is a user logged in
+        Add the hash data to the database for a user if they are logged in
         """
         if current_app.config["USERNAME"] != "":
             connection, cursor = self.connectToDatabase()
