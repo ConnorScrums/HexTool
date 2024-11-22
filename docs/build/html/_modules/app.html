@@ -80,6 +80,7 @@
 
 <span class="kn">from</span> <span class="nn">src</span> <span class="kn">import</span> <span class="n">hex_tool</span>
 <span class="kn">from</span> <span class="nn">src</span> <span class="kn">import</span> <span class="n">account_creation</span>
+<span class="kn">from</span> <span class="nn">src</span> <span class="kn">import</span> <span class="n">checksum</span>
 <span class="c1"># from src import database_password_helper</span>
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
@@ -93,7 +94,7 @@
 
 <span class="n">HexTool</span> <span class="o">=</span> <span class="n">hex_tool</span><span class="o">.</span><span class="n">HexTool</span><span class="p">()</span>
 <span class="n">acc_creation</span> <span class="o">=</span> <span class="n">account_creation</span><span class="o">.</span><span class="n">AccountCreation</span><span class="p">()</span>
-
+<span class="n">cksum</span> <span class="o">=</span> <span class="n">checksum</span><span class="o">.</span><span class="n">Checksum</span><span class="p">()</span>
 
 <div class="viewcode-block" id="home">
 <a class="viewcode-back" href="../app.html#app.home">[docs]</a>
@@ -116,7 +117,9 @@
                     <span class="n">raw_bytes</span> <span class="o">=</span> <span class="n">binary</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
                 <span class="n">HexTool</span><span class="o">.</span><span class="n">set_hash_method</span><span class="p">(</span><span class="n">hash_method</span><span class="o">=</span><span class="n">hash_method</span><span class="p">)</span>
                 <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span>
-                    <span class="s2">&quot;index.html&quot;</span><span class="p">,</span> <span class="nb">hash</span><span class="o">=</span><span class="n">HexTool</span><span class="o">.</span><span class="n">use_hash_method</span><span class="p">(</span><span class="n">raw_bytes</span><span class="p">)</span>
+                    <span class="s2">&quot;index.html&quot;</span><span class="p">,</span> 
+                    <span class="nb">hash</span><span class="o">=</span><span class="n">HexTool</span><span class="o">.</span><span class="n">use_hash_method</span><span class="p">(</span><span class="n">raw_bytes</span><span class="p">),</span> 
+                    <span class="n">chksum</span><span class="o">=</span><span class="n">cksum</span><span class="o">.</span><span class="n">calculate_checksum</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
                 <span class="p">)</span>
     <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;index.html&quot;</span><span class="p">)</span></div>
 
@@ -162,6 +165,18 @@
     <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;account_creation.html&quot;</span><span class="p">)</span></div>
 
 
+<div class="viewcode-block" id="login">
+<a class="viewcode-back" href="../app.html#app.login">[docs]</a>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/login&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="s2">&quot;POST&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">login</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Display the login page for existing users</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;login.html&quot;</span><span class="p">)</span></div>
+
+
+<span class="c1">#@app.route(&quot;signout&quot;, methods=[&quot;GET&quot;, &quot;POST&quot;])</span>
 
 <div class="viewcode-block" id="goto_documentation">
 <a class="viewcode-back" href="../app.html#app.goto_documentation">[docs]</a>

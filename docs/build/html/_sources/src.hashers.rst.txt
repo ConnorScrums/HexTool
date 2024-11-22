@@ -3,13 +3,6 @@ src.hashers package
 
 Submodules
 ----------
-src.hashers.hasher module
--------------------------
-
-.. automodule:: src.hashers.hasher
-   :members:
-   :undoc-members:
-   :show-inheritance:
 
 src.hashers.division\_method\_hasher module
 -------------------------------------------
@@ -19,6 +12,29 @@ src.hashers.division\_method\_hasher module
    :undoc-members:
    :show-inheritance:
 
+src.hashers.folding\_method\_hasher module
+------------------------------------------
+
+.. automodule:: src.hashers.folding_method_hasher
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+src.hashers.hasher module
+-------------------------
+
+.. automodule:: src.hashers.hasher
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+src.hashers.mid\_square\_method\_hasher module
+----------------------------------------------
+
+.. automodule:: src.hashers.mid_square_method_hasher
+   :members:
+   :undoc-members:
+   :show-inheritance:
 
 src.hashers.multiplication\_method\_hasher module
 -------------------------------------------------
@@ -32,6 +48,14 @@ src.hashers.mumurhash\_32\_method\_hasher module
 ------------------------------------------------
 
 .. automodule:: src.hashers.mumurhash_32_method_hasher
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+src.hashers.sha1\_hasher module
+-------------------------------
+
+.. automodule:: src.hashers.sha1_hasher
    :members:
    :undoc-members:
    :show-inheritance:

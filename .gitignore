@@ -11,10 +11,12 @@ uploads/*
 .ruff_cache/
 
 
-docs/Makefile
-docs/make.bat
 docs/source/*
+!docs/Makefile
+!docs/make.bat
+!docs/source/index.rst
 !docs/source/conf.py
+
 docs/build/doctrees/*
 docs/html/_sources/*
 *inv
