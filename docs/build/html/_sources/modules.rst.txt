@@ -5,4 +5,5 @@ HexTool
    :maxdepth: 4
 
    app
+   folding_method_hasher
    src

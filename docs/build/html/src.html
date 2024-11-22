@@ -20,7 +20,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="src.hashers package" href="src.hashers.html" />
-    <link rel="prev" title="app module" href="app.html" /> 
+    <link rel="prev" title="folding_method_hasher module" href="folding_method_hasher.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -46,6 +46,7 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">HexTool</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="app.html">app module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="folding_method_hasher.html">folding_method_hasher module</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">src package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="src.hashers.html">src.hashers package</a></li>
@@ -53,16 +54,20 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-src.hex_tool">src.hex_tool module</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#src.hex_tool.HexTool"><code class="docutils literal notranslate"><span class="pre">HexTool</span></code></a></li>
-</ul>
-</li>
 <li class="toctree-l3"><a class="reference internal" href="#module-src.account_creation">src.account_creation module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#src.account_creation.AccountCreation"><code class="docutils literal notranslate"><span class="pre">AccountCreation</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#module-src.checksum">src.checksum module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#src.checksum.Checksum"><code class="docutils literal notranslate"><span class="pre">Checksum</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#module-src.database_password_helper">src.database_password_helper module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#src.database_password_helper.DatabasePasswordHelper"><code class="docutils literal notranslate"><span class="pre">DatabasePasswordHelper</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-src.hex_tool">src.hex_tool module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#src.hex_tool.HexTool"><code class="docutils literal notranslate"><span class="pre">HexTool</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#module-src">Module contents</a></li>
@@ -78,14 +83,6 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-src.hex_tool">src.hex_tool module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#src.hex_tool.HexTool"><code class="docutils literal notranslate"><span class="pre">HexTool</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#src.hex_tool.HexTool.set_hash_method"><code class="docutils literal notranslate"><span class="pre">HexTool.set_hash_method()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#src.hex_tool.HexTool.use_hash_method"><code class="docutils literal notranslate"><span class="pre">HexTool.use_hash_method()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="#module-src.account_creation">src.account_creation module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#src.account_creation.AccountCreation"><code class="docutils literal notranslate"><span class="pre">AccountCreation</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#src.account_creation.AccountCreation.connect_to_database"><code class="docutils literal notranslate"><span class="pre">AccountCreation.connect_to_database()</span></code></a></li>
@@ -95,10 +92,25 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#module-src.checksum">src.checksum module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.checksum.Checksum"><code class="docutils literal notranslate"><span class="pre">Checksum</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#src.checksum.Checksum.calculate_checksum"><code class="docutils literal notranslate"><span class="pre">Checksum.calculate_checksum()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#module-src.database_password_helper">src.database_password_helper module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#src.database_password_helper.DatabasePasswordHelper"><code class="docutils literal notranslate"><span class="pre">DatabasePasswordHelper</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#src.database_password_helper.DatabasePasswordHelper.hash_password"><code class="docutils literal notranslate"><span class="pre">DatabasePasswordHelper.hash_password()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#src.database_password_helper.DatabasePasswordHelper.verify_password"><code class="docutils literal notranslate"><span class="pre">DatabasePasswordHelper.verify_password()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-src.hex_tool">src.hex_tool module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.hex_tool.HexTool"><code class="docutils literal notranslate"><span class="pre">HexTool</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#src.hex_tool.HexTool.set_hash_method"><code class="docutils literal notranslate"><span class="pre">HexTool.set_hash_method()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#src.hex_tool.HexTool.use_hash_method"><code class="docutils literal notranslate"><span class="pre">HexTool.use_hash_method()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -143,6 +155,20 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="src.hashers.html">src.hashers package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="src.hashers.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src.hashers.html#module-src.hashers.division_method_hasher">src.hashers.division_method_hasher module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="src.hashers.html#src.hashers.division_method_hasher.DivisionMethodHasher"><code class="docutils literal notranslate"><span class="pre">DivisionMethodHasher</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="src.hashers.html#src.hashers.division_method_hasher.DivisionMethodHasher.hash"><code class="docutils literal notranslate"><span class="pre">DivisionMethodHasher.hash()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="src.hashers.html#module-src.hashers.folding_method_hasher">src.hashers.folding_method_hasher module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="src.hashers.html#src.hashers.folding_method_hasher.FoldingMethodHasher"><code class="docutils literal notranslate"><span class="pre">FoldingMethodHasher</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="src.hashers.html#src.hashers.folding_method_hasher.FoldingMethodHasher.hash"><code class="docutils literal notranslate"><span class="pre">FoldingMethodHasher.hash()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="src.hashers.html#module-src.hashers.hasher">src.hashers.hasher module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="src.hashers.html#src.hashers.hasher.Hasher"><code class="docutils literal notranslate"><span class="pre">Hasher</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="src.hashers.html#src.hashers.hasher.Hasher.hash"><code class="docutils literal notranslate"><span class="pre">Hasher.hash()</span></code></a></li>
@@ -150,9 +176,9 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="src.hashers.html#module-src.hashers.division_method_hasher">src.hashers.division_method_hasher module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="src.hashers.html#src.hashers.division_method_hasher.DivisionMethodHasher"><code class="docutils literal notranslate"><span class="pre">DivisionMethodHasher</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="src.hashers.html#src.hashers.division_method_hasher.DivisionMethodHasher.hash"><code class="docutils literal notranslate"><span class="pre">DivisionMethodHasher.hash()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="src.hashers.html#module-src.hashers.mid_square_method_hasher">src.hashers.mid_square_method_hasher module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="src.hashers.html#src.hashers.mid_square_method_hasher.MidSquareHasher"><code class="docutils literal notranslate"><span class="pre">MidSquareHasher</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="src.hashers.html#src.hashers.mid_square_method_hasher.MidSquareHasher.hash"><code class="docutils literal notranslate"><span class="pre">MidSquareHasher.hash()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -168,6 +194,13 @@
 <li class="toctree-l3"><a class="reference internal" href="src.hashers.html#src.hashers.mumurhash_32_method_hasher.MurmurHash32MethodHasher"><code class="docutils literal notranslate"><span class="pre">MurmurHash32MethodHasher</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="src.hashers.html#src.hashers.mumurhash_32_method_hasher.MurmurHash32MethodHasher.hash"><code class="docutils literal notranslate"><span class="pre">MurmurHash32MethodHasher.hash()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="src.hashers.html#src.hashers.mumurhash_32_method_hasher.MurmurHash32MethodHasher.rotl32"><code class="docutils literal notranslate"><span class="pre">MurmurHash32MethodHasher.rotl32()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="src.hashers.html#module-src.hashers.pearson_hasher">src.hashers.pearson_hasher module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="src.hashers.html#src.hashers.pearson_hasher.PearsonHasher"><code class="docutils literal notranslate"><span class="pre">PearsonHasher</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="src.hashers.html#src.hashers.pearson_hasher.PearsonHasher.hash"><code class="docutils literal notranslate"><span class="pre">PearsonHasher.hash()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -200,6 +233,81 @@
 </section>
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-src.account_creation">
+<span id="src-account-creation-module"></span><h2>src.account_creation module<a class="headerlink" href="#module-src.account_creation" title="Link to this heading"></a></h2>
+<p>AccountCreation, connect to DB and create a
+new user account with input from the
+account_creation webpage</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.account_creation.AccountCreation">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.account_creation.</span></span><span class="sig-name descname"><span class="pre">AccountCreation</span></span><a class="reference internal" href="_modules/src/account_creation.html#AccountCreation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.account_creation.AccountCreation" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Handle account creation</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.account_creation.AccountCreation.connect_to_database">
+<span class="sig-name descname"><span class="pre">connect_to_database</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/account_creation.html#AccountCreation.connect_to_database"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.account_creation.AccountCreation.connect_to_database" title="Link to this definition"></a></dt>
+<dd><p>Connect to the DB, returns the connection &amp; cursor</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.account_creation.AccountCreation.create_account">
+<span class="sig-name descname"><span class="pre">create_account</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">email</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/account_creation.html#AccountCreation.create_account"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.account_creation.AccountCreation.create_account" title="Link to this definition"></a></dt>
+<dd><p>Takes input from webpage and inserts into users table in DB</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.account_creation.AccountCreation.does_email_exist">
+<span class="sig-name descname"><span class="pre">does_email_exist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">email</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cursor</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/account_creation.html#AccountCreation.does_email_exist"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.account_creation.AccountCreation.does_email_exist" title="Link to this definition"></a></dt>
+<dd><p>Checks if user with entered email is already in the DB</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-src.checksum">
+<span id="src-checksum-module"></span><h2>src.checksum module<a class="headerlink" href="#module-src.checksum" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.checksum.Checksum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.checksum.</span></span><span class="sig-name descname"><span class="pre">Checksum</span></span><a class="reference internal" href="_modules/src/checksum.html#Checksum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.checksum.Checksum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Calculate the checksum of a file to verify integrity</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.checksum.Checksum.calculate_checksum">
+<span class="sig-name descname"><span class="pre">calculate_checksum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_input</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">IO</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/src/checksum.html#Checksum.calculate_checksum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.checksum.Checksum.calculate_checksum" title="Link to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Args:</dt><dd><p>file_input: File uploaded to application taken as input</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-src.database_password_helper">
+<span id="src-database-password-helper-module"></span><h2>src.database_password_helper module<a class="headerlink" href="#module-src.database_password_helper" title="Link to this heading"></a></h2>
+<p>Password Salting, Hashing and
+Verification</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.database_password_helper.DatabasePasswordHelper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.database_password_helper.</span></span><span class="sig-name descname"><span class="pre">DatabasePasswordHelper</span></span><a class="reference internal" href="_modules/src/database_password_helper.html#DatabasePasswordHelper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.database_password_helper.DatabasePasswordHelper" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Handle Password Salting,
+Hashing and Verification</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.database_password_helper.DatabasePasswordHelper.hash_password">
+<span class="sig-name descname"><span class="pre">hash_password</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">password</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/database_password_helper.html#DatabasePasswordHelper.hash_password"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.database_password_helper.DatabasePasswordHelper.hash_password" title="Link to this definition"></a></dt>
+<dd><p>Password Salting and Hashing</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.database_password_helper.DatabasePasswordHelper.verify_password">
+<span class="sig-name descname"><span class="pre">verify_password</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stored_password</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">provided_password</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/database_password_helper.html#DatabasePasswordHelper.verify_password"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.database_password_helper.DatabasePasswordHelper.verify_password" title="Link to this definition"></a></dt>
+<dd><p>Password Verification for login</p>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 <section id="module-src.hex_tool">
 <span id="src-hex-tool-module"></span><h2>src.hex_tool module<a class="headerlink" href="#module-src.hex_tool" title="Link to this heading"></a></h2>
@@ -236,62 +344,6 @@
 </dd></dl>
 
 </section>
-<section id="module-src.account_creation">
-<span id="src-account-creation-module"></span><h2>src.account_creation module<a class="headerlink" href="#module-src.account_creation" title="Link to this heading"></a></h2>
-<p>AccountCreation, connect to DB and create a
-new user account with input from the
-account_creation webpage</p>
-<dl class="py class">
-<dt class="sig sig-object py" id="src.account_creation.AccountCreation">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.account_creation.</span></span><span class="sig-name descname"><span class="pre">AccountCreation</span></span><a class="reference internal" href="_modules/src/account_creation.html#AccountCreation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.account_creation.AccountCreation" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Handle account creation</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="src.account_creation.AccountCreation.connect_to_database">
-<span class="sig-name descname"><span class="pre">connect_to_database</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/account_creation.html#AccountCreation.connect_to_database"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.account_creation.AccountCreation.connect_to_database" title="Link to this definition"></a></dt>
-<dd><p>Connect to the DB, returns the connection &amp; cursor</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="src.account_creation.AccountCreation.create_account">
-<span class="sig-name descname"><span class="pre">create_account</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">email</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/account_creation.html#AccountCreation.create_account"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.account_creation.AccountCreation.create_account" title="Link to this definition"></a></dt>
-<dd><p>Takes input from webpage and inserts into users table in DB</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="src.account_creation.AccountCreation.does_email_exist">
-<span class="sig-name descname"><span class="pre">does_email_exist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">email</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cursor</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/account_creation.html#AccountCreation.does_email_exist"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.account_creation.AccountCreation.does_email_exist" title="Link to this definition"></a></dt>
-<dd><p>Checks if user with entered email is already in the DB</p>
-</dd></dl>
-
-</dd></dl>
-
-</section>
-<section id="module-src.database_password_helper">
-<span id="src-database-password-helper-module"></span><h2>src.database_password_helper module<a class="headerlink" href="#module-src.database_password_helper" title="Link to this heading"></a></h2>
-<p>Password Salting, Hashing and
-Verification</p>
-<dl class="py class">
-<dt class="sig sig-object py" id="src.database_password_helper.DatabasePasswordHelper">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.database_password_helper.</span></span><span class="sig-name descname"><span class="pre">DatabasePasswordHelper</span></span><a class="reference internal" href="_modules/src/database_password_helper.html#DatabasePasswordHelper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.database_password_helper.DatabasePasswordHelper" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Handle Password Salting,
-Hashing and Verification</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="src.database_password_helper.DatabasePasswordHelper.hash_password">
-<span class="sig-name descname"><span class="pre">hash_password</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">password</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/database_password_helper.html#DatabasePasswordHelper.hash_password"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.database_password_helper.DatabasePasswordHelper.hash_password" title="Link to this definition"></a></dt>
-<dd><p>Password Salting and Hashing</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="src.database_password_helper.DatabasePasswordHelper.verify_password">
-<span class="sig-name descname"><span class="pre">verify_password</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stored_password</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">provided_password</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/database_password_helper.html#DatabasePasswordHelper.verify_password"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.database_password_helper.DatabasePasswordHelper.verify_password" title="Link to this definition"></a></dt>
-<dd><p>Password Verification for login</p>
-</dd></dl>
-
-</dd></dl>
-
-</section>
 <section id="module-src">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-src" title="Link to this heading"></a></h2>
 </section>
@@ -301,7 +353,7 @@ Hashing and Verification</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="app.html" class="btn btn-neutral float-left" title="app module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="folding_method_hasher.html" class="btn btn-neutral float-left" title="folding_method_hasher module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="src.hashers.html" class="btn btn-neutral float-right" title="src.hashers package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

@@ -46,6 +46,7 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">HexTool</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="app.html">app module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="folding_method_hasher.html">folding_method_hasher module</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="src.html">src package</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="src.html#subpackages">Subpackages</a><ul class="current">
 <li class="toctree-l4 current"><a class="current reference internal" href="#">src.hashers package</a></li>
@@ -53,9 +54,10 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="src.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="src.html#module-src.hex_tool">src.hex_tool module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="src.html#module-src.account_creation">src.account_creation module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src.html#module-src.checksum">src.checksum module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="src.html#module-src.database_password_helper">src.database_password_helper module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src.html#module-src.hex_tool">src.hex_tool module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="src.html#module-src">Module contents</a></li>
 </ul>
 </li>
@@ -66,10 +68,13 @@
 <li class="toctree-l2 current"><a class="reference internal" href="src.html#subpackages">Subpackages</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">src.hashers package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#module-src.hashers.hasher">src.hashers.hasher module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-src.hashers.division_method_hasher">src.hashers.division_method_hasher module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-src.hashers.folding_method_hasher">src.hashers.folding_method_hasher module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-src.hashers.hasher">src.hashers.hasher module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-src.hashers.mid_square_method_hasher">src.hashers.mid_square_method_hasher module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-src.hashers.multiplication_method_hasher">src.hashers.multiplication_method_hasher module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-src.hashers.mumurhash_32_method_hasher">src.hashers.mumurhash_32_method_hasher module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-src.hashers.pearson_hasher">src.hashers.pearson_hasher module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-src.hashers">Module contents</a></li>
 </ul>
 </li>
@@ -77,14 +82,29 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="src.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="src.html#module-src.hex_tool">src.hex_tool module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="src.html#module-src.account_creation">src.account_creation module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src.html#module-src.checksum">src.checksum module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="src.html#module-src.database_password_helper">src.database_password_helper module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src.html#module-src.hex_tool">src.hex_tool module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="src.html#module-src">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">src.hashers package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-src.hashers.division_method_hasher">src.hashers.division_method_hasher module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.hashers.division_method_hasher.DivisionMethodHasher"><code class="docutils literal notranslate"><span class="pre">DivisionMethodHasher</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#src.hashers.division_method_hasher.DivisionMethodHasher.hash"><code class="docutils literal notranslate"><span class="pre">DivisionMethodHasher.hash()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-src.hashers.folding_method_hasher">src.hashers.folding_method_hasher module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.hashers.folding_method_hasher.FoldingMethodHasher"><code class="docutils literal notranslate"><span class="pre">FoldingMethodHasher</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#src.hashers.folding_method_hasher.FoldingMethodHasher.hash"><code class="docutils literal notranslate"><span class="pre">FoldingMethodHasher.hash()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#module-src.hashers.hasher">src.hashers.hasher module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#src.hashers.hasher.Hasher"><code class="docutils literal notranslate"><span class="pre">Hasher</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#src.hashers.hasher.Hasher.hash"><code class="docutils literal notranslate"><span class="pre">Hasher.hash()</span></code></a></li>
@@ -92,9 +112,9 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#module-src.hashers.division_method_hasher">src.hashers.division_method_hasher module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#src.hashers.division_method_hasher.DivisionMethodHasher"><code class="docutils literal notranslate"><span class="pre">DivisionMethodHasher</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#src.hashers.division_method_hasher.DivisionMethodHasher.hash"><code class="docutils literal notranslate"><span class="pre">DivisionMethodHasher.hash()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-src.hashers.mid_square_method_hasher">src.hashers.mid_square_method_hasher module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.hashers.mid_square_method_hasher.MidSquareHasher"><code class="docutils literal notranslate"><span class="pre">MidSquareHasher</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#src.hashers.mid_square_method_hasher.MidSquareHasher.hash"><code class="docutils literal notranslate"><span class="pre">MidSquareHasher.hash()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -110,6 +130,13 @@
 <li class="toctree-l3"><a class="reference internal" href="#src.hashers.mumurhash_32_method_hasher.MurmurHash32MethodHasher"><code class="docutils literal notranslate"><span class="pre">MurmurHash32MethodHasher</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#src.hashers.mumurhash_32_method_hasher.MurmurHash32MethodHasher.hash"><code class="docutils literal notranslate"><span class="pre">MurmurHash32MethodHasher.hash()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#src.hashers.mumurhash_32_method_hasher.MurmurHash32MethodHasher.rotl32"><code class="docutils literal notranslate"><span class="pre">MurmurHash32MethodHasher.rotl32()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-src.hashers.pearson_hasher">src.hashers.pearson_hasher module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.hashers.pearson_hasher.PearsonHasher"><code class="docutils literal notranslate"><span class="pre">PearsonHasher</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#src.hashers.pearson_hasher.PearsonHasher.hash"><code class="docutils literal notranslate"><span class="pre">PearsonHasher.hash()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -151,6 +178,54 @@
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
 </section>
+<section id="module-src.hashers.division_method_hasher">
+<span id="src-hashers-division-method-hasher-module"></span><h2>src.hashers.division_method_hasher module<a class="headerlink" href="#module-src.hashers.division_method_hasher" title="Link to this heading"></a></h2>
+<p>Adds the remainder of a modulus to a 64 bit hash, for each byte in the input.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.hashers.division_method_hasher.DivisionMethodHasher">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.hashers.division_method_hasher.</span></span><span class="sig-name descname"><span class="pre">DivisionMethodHasher</span></span><a class="reference internal" href="_modules/src/hashers/division_method_hasher.html#DivisionMethodHasher"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.hashers.division_method_hasher.DivisionMethodHasher" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#src.hashers.hasher.Hasher" title="src.hashers.hasher.Hasher"><code class="xref py py-class docutils literal notranslate"><span class="pre">Hasher</span></code></a></p>
+<p>Concrete implementation of the Abstract Hasher class that
+takes the modulus of each byte k by M  and adds the remainder to a 64 bit hash.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.hashers.division_method_hasher.DivisionMethodHasher.hash">
+<span class="sig-name descname"><span class="pre">hash</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_bytes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="src.hashes.html#src.hashes.hash.Hash" title="src.hashes.hash.Hash"><span class="pre">Hash</span></a></span></span><a class="reference internal" href="_modules/src/hashers/division_method_hasher.html#DivisionMethodHasher.hash"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.hashers.division_method_hasher.DivisionMethodHasher.hash" title="Link to this definition"></a></dt>
+<dd><p>Calculates the hash by taking the modulus of each byte and adding it to a 64-bit hash.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>raw_bytes (bytes): Array of bytes of the input.</p>
+</dd>
+<dt>Returns:</dt><dd><p>The hash of the input bytes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-src.hashers.folding_method_hasher">
+<span id="src-hashers-folding-method-hasher-module"></span><h2>src.hashers.folding_method_hasher module<a class="headerlink" href="#module-src.hashers.folding_method_hasher" title="Link to this heading"></a></h2>
+<p>Folding hash implementation, breaks up key value into 
+segments that are added to form a hash value</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.hashers.folding_method_hasher.FoldingMethodHasher">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.hashers.folding_method_hasher.</span></span><span class="sig-name descname"><span class="pre">FoldingMethodHasher</span></span><a class="reference internal" href="_modules/src/hashers/folding_method_hasher.html#FoldingMethodHasher"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.hashers.folding_method_hasher.FoldingMethodHasher" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#src.hashers.hasher.Hasher" title="src.hashers.hasher.Hasher"><code class="xref py py-class docutils literal notranslate"><span class="pre">Hasher</span></code></a></p>
+<p>Python implementation of the folding hash</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.hashers.folding_method_hasher.FoldingMethodHasher.hash">
+<span class="sig-name descname"><span class="pre">hash</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_bytes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="src.hashes.html#src.hashes.hash.Hash" title="src.hashes.hash.Hash"><span class="pre">Hash</span></a></span></span><a class="reference internal" href="_modules/src/hashers/folding_method_hasher.html#FoldingMethodHasher.hash"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.hashers.folding_method_hasher.FoldingMethodHasher.hash" title="Link to this definition"></a></dt>
+<dd><p>Calculates the hash by a concrete method for each byte and adding it to an N-bit hash.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>raw_bytes (bytes): Array of bytes of the input.</p>
+</dd>
+<dt>Returns:</dt><dd><p>The hash of the input bytes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
 <section id="module-src.hashers.hasher">
 <span id="src-hashers-hasher-module"></span><h2>src.hashers.hasher module<a class="headerlink" href="#module-src.hashers.hasher" title="Link to this heading"></a></h2>
 <p>Abstract Hasher Class giving the definition of how a Hasher behaves.</p>
@@ -174,19 +249,18 @@
 </dd></dl>
 
 </section>
-<section id="module-src.hashers.division_method_hasher">
-<span id="src-hashers-division-method-hasher-module"></span><h2>src.hashers.division_method_hasher module<a class="headerlink" href="#module-src.hashers.division_method_hasher" title="Link to this heading"></a></h2>
-<p>Adds the remainder of a modulus to a 64 bit hash, for each byte in the input.</p>
+<section id="module-src.hashers.mid_square_method_hasher">
+<span id="src-hashers-mid-square-method-hasher-module"></span><h2>src.hashers.mid_square_method_hasher module<a class="headerlink" href="#module-src.hashers.mid_square_method_hasher" title="Link to this heading"></a></h2>
+<p>Mid-Square hash implementation</p>
 <dl class="py class">
-<dt class="sig sig-object py" id="src.hashers.division_method_hasher.DivisionMethodHasher">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.hashers.division_method_hasher.</span></span><span class="sig-name descname"><span class="pre">DivisionMethodHasher</span></span><a class="reference internal" href="_modules/src/hashers/division_method_hasher.html#DivisionMethodHasher"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.hashers.division_method_hasher.DivisionMethodHasher" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="src.hashers.mid_square_method_hasher.MidSquareHasher">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.hashers.mid_square_method_hasher.</span></span><span class="sig-name descname"><span class="pre">MidSquareHasher</span></span><a class="reference internal" href="_modules/src/hashers/mid_square_method_hasher.html#MidSquareHasher"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.hashers.mid_square_method_hasher.MidSquareHasher" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#src.hashers.hasher.Hasher" title="src.hashers.hasher.Hasher"><code class="xref py py-class docutils literal notranslate"><span class="pre">Hasher</span></code></a></p>
-<p>Concrete implementation of the Abstract Hasher class that
-takes the modulus of each byte k by M  and adds the remainder to a 64 bit hash.</p>
+<p>Python implementation of the mid-square hash</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="src.hashers.division_method_hasher.DivisionMethodHasher.hash">
-<span class="sig-name descname"><span class="pre">hash</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_bytes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="src.hashes.html#src.hashes.hash.Hash" title="src.hashes.hash.Hash"><span class="pre">Hash</span></a></span></span><a class="reference internal" href="_modules/src/hashers/division_method_hasher.html#DivisionMethodHasher.hash"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.hashers.division_method_hasher.DivisionMethodHasher.hash" title="Link to this definition"></a></dt>
-<dd><p>Calculates the hash by taking the modulus of each byte and adding it to a 64-bit hash.</p>
+<dt class="sig sig-object py" id="src.hashers.mid_square_method_hasher.MidSquareHasher.hash">
+<span class="sig-name descname"><span class="pre">hash</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_bytes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="src.hashes.html#src.hashes.hash.Hash" title="src.hashes.hash.Hash"><span class="pre">Hash</span></a></span></span><a class="reference internal" href="_modules/src/hashers/mid_square_method_hasher.html#MidSquareHasher.hash"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.hashers.mid_square_method_hasher.MidSquareHasher.hash" title="Link to this definition"></a></dt>
+<dd><p>Calculates the hash by a concrete method for each byte and adding it to an N-bit hash.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>raw_bytes (bytes): Array of bytes of the input.</p>
 </dd>
@@ -247,6 +321,37 @@ hash function suitable for general hash-based lookup</p>
 <dt class="sig sig-object py" id="src.hashers.mumurhash_32_method_hasher.MurmurHash32MethodHasher.rotl32">
 <span class="sig-name descname"><span class="pre">rotl32</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/hashers/mumurhash_32_method_hasher.html#MurmurHash32MethodHasher.rotl32"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.hashers.mumurhash_32_method_hasher.MurmurHash32MethodHasher.rotl32" title="Link to this definition"></a></dt>
 <dd><p>Bitwise left rotating the value of x by n positions</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-src.hashers.pearson_hasher">
+<span id="src-hashers-pearson-hasher-module"></span><h2>src.hashers.pearson_hasher module<a class="headerlink" href="#module-src.hashers.pearson_hasher" title="Link to this heading"></a></h2>
+<p>Pearson Hashing Algorithm</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.hashers.pearson_hasher.PearsonHasher">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.hashers.pearson_hasher.</span></span><span class="sig-name descname"><span class="pre">PearsonHasher</span></span><a class="reference internal" href="_modules/src/hashers/pearson_hasher.html#PearsonHasher"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.hashers.pearson_hasher.PearsonHasher" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#src.hashers.hasher.Hasher" title="src.hashers.hasher.Hasher"><code class="xref py py-class docutils literal notranslate"><span class="pre">Hasher</span></code></a></p>
+<p>Pearson hashing is a non-cryptographic hash function designed for fast execution
+on processors with 8-bit registers. Given an input consisting of any number of bytes,
+it produces as output a single byte that is strongly dependent on every byte of the input.</p>
+<p>credit: <a class="reference external" href="https://en.wikipedia.org/wiki/Pearson_hashing">https://en.wikipedia.org/wiki/Pearson_hashing</a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.hashers.pearson_hasher.PearsonHasher.hash">
+<span class="sig-name descname"><span class="pre">hash</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_bytes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="src.hashes.html#src.hashes.hash.Hash" title="src.hashes.hash.Hash"><span class="pre">Hash</span></a></span></span><a class="reference internal" href="_modules/src/hashers/pearson_hasher.html#PearsonHasher.hash"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.hashers.pearson_hasher.PearsonHasher.hash" title="Link to this definition"></a></dt>
+<dd><p>The Pearson hashing method is designed for 8-bit processes and is a non-crypto
+method of producing a message digest. It produces an 8-bit value which is dependent
+on the data produce. It uses a 256-byte lookup table, and then iterate around the
+bytes in the data.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>Arg:</dt><dd><p>raw_bytes (bytes): Array of bytes of the input.</p>
+</dd>
+<dt>Returns:</dt><dd><p>The hash result of the input bytes after running Pearson Hash</p>
+</dd>
+</dl>
+</div></blockquote>
 </dd></dl>
 
 </dd></dl>
