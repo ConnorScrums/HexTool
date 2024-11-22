@@ -1,11 +1,13 @@
 {% extends "base.html" %}
 
 {% block body %}
-<form method="POST" action="/login">
+<form method="POST" action="/login_attempt">
     <div class="container">
       <h1>Log In</h1>
       <hr>
-  
+      {% if login == False %}
+        <div style="color:red;"> Incorrect Login </div>
+      {% endif %}
       <label for="email"><b>Email</b></label>
       <input type="text" placeholder="Enter Email" name="email" required>
   

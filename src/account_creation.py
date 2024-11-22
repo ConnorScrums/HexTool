@@ -8,6 +8,7 @@ import os
 import pymysql
 from dotenv import load_dotenv
 from .database_password_helper import DatabasePasswordHelper
+from flask import current_app
 
 
 class AccountCreation:
@@ -55,3 +56,25 @@ class AccountCreation:
             return True
 
         return False
+
+    def login(self, email, password):
+        """
+        Takes input from the webpage and attempts to validate the user in the database
+        """
+        load_dotenv()
+        db_helper = DatabasePasswordHelper()
+        connection, cursor = self.connect_to_database()
+        password = db_helper.hash_password(password)
+
+        if self.does_email_exist(email, cursor):
+            sql = "SELECT password FROM users WHERE username = %s"
+            cursor.execute(sql, (email))
+            results = cursor.fetchall()
+
+            if results[0][0] == password[:45]:
+                current_app.config["USERNAME"] = email
+                connection.close()
+                return True
+            else:
+                connection.close()
+                return False

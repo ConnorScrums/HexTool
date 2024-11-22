@@ -1,25 +1,23 @@
-import os
-import pymysql
+import os, pymysql
 from dotenv import load_dotenv
 from flask import current_app
-
 
 class DatabaseUtility:
     """Handle database querys"""
 
     def connectToDatabase(self):
-        """
-        Connect to the DB, returns the connection & cursor
-        """
-        connection = pymysql.connect(
-            host=os.getenv("DB_ENDPOINT"),
-            user=os.getenv("DB_USERNAME"),
-            password=os.getenv("DB_PASSWORD"),
-            database=os.getenv("DB_NAME"),
-        )
-        connection_cursor = connection.cursor()
-        return connection, connection_cursor
-
+       """
+       Connect to the DB, returns the connection & cursor
+       """
+       connection = pymysql.connect(
+           host=os.getenv("DB_ENDPOINT"),
+           user=os.getenv("DB_USERNAME"),
+           password=os.getenv("DB_PASSWORD"),
+           database=os.getenv("DB_NAME"),
+       )
+       connection_cursor = connection.cursor()
+       return connection, connection_cursor
+    
     def getUserId(self):
         """
         Get the Users Id from the database (Primary Key)
@@ -32,7 +30,7 @@ class DatabaseUtility:
         if results:
             connection.close()
             return results[0][0]
-
+    
         connection.close()
         return False
 
@@ -56,7 +54,7 @@ class DatabaseUtility:
         Delete all hashes from the database for a user if they are logged in
         """
         if current_app.config["USERNAME"] != "":
-            connection, cursor = self.connectToDatabase()
+            connection,cursor = self.connectToDatabase()
             id = self.getUserId()
             sql = "DELETE FROM hashes WHERE user_id = %s;"
             cursor.execute(sql, id)
@@ -75,6 +73,6 @@ class DatabaseUtility:
         if results:
             connection.close()
             return results
-
+        
         connection.close()
         return False

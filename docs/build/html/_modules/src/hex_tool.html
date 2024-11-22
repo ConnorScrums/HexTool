@@ -81,7 +81,11 @@
 <span class="kn">from</span> <span class="nn">.hashers.mumurhash_32_method_hasher</span> <span class="kn">import</span> <span class="n">MurmurHash32MethodHasher</span>
 <span class="kn">from</span> <span class="nn">.hashers.folding_method_hasher</span> <span class="kn">import</span> <span class="n">FoldingMethodHasher</span>
 <span class="kn">from</span> <span class="nn">.hashers.mid_square_method_hasher</span> <span class="kn">import</span> <span class="n">MidSquareHasher</span>
+<<<<<<< HEAD
 <span class="kn">from</span> <span class="nn">.hashers.pearson_hasher</span> <span class="kn">import</span> <span class="n">PearsonHasher</span>
+=======
+<span class="kn">from</span> <span class="nn">.hashers.sha1_hasher</span> <span class="kn">import</span> <span class="n">SHA1Hasher</span>
+>>>>>>> origin/main
 <span class="kn">from</span> <span class="nn">.hashers.hasher</span> <span class="kn">import</span> <span class="n">Hasher</span>
 <span class="kn">from</span> <span class="nn">.hashes.hash</span> <span class="kn">import</span> <span class="n">Hash</span>
 
@@ -102,7 +106,11 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">murmurhash_32_method_hasher</span><span class="p">:</span> <span class="n">Hasher</span> <span class="o">=</span> <span class="n">MurmurHash32MethodHasher</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">folding_method_hasher</span><span class="p">:</span> <span class="n">Hasher</span> <span class="o">=</span> <span class="n">FoldingMethodHasher</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mid_square_method_hasher</span><span class="p">:</span> <span class="n">Hasher</span> <span class="o">=</span> <span class="n">MidSquareHasher</span><span class="p">()</span>
+<<<<<<< HEAD
         <span class="bp">self</span><span class="o">.</span><span class="n">pearson_method_hasher</span><span class="p">:</span> <span class="n">Hasher</span> <span class="o">=</span> <span class="n">PearsonHasher</span><span class="p">()</span>
+=======
+        <span class="bp">self</span><span class="o">.</span><span class="n">sha1_method_hasher</span><span class="p">:</span> <span class="n">Hasher</span> <span class="o">=</span> <span class="n">SHA1Hasher</span><span class="p">()</span>
+>>>>>>> origin/main
 
 <div class="viewcode-block" id="HexTool.set_hash_method">
 <a class="viewcode-back" href="../../src.html#src.hex_tool.HexTool.set_hash_method">[docs]</a>
@@ -125,8 +133,13 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">__current_hasher</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">folding_method_hasher</span>
         <span class="k">elif</span> <span class="n">hash_method</span> <span class="o">==</span> <span class="s2">&quot;mid-square-method-hasher&quot;</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">__current_hasher</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mid_square_method_hasher</span>
+<<<<<<< HEAD
         <span class="k">elif</span> <span class="n">hash_method</span> <span class="o">==</span> <span class="s2">&quot;pearson-method-hasher&quot;</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">__current_hasher</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pearson_method_hasher</span>
+=======
+        <span class="k">elif</span> <span class="n">hash_method</span> <span class="o">==</span> <span class="s2">&quot;sha-1-method-hasher&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__current_hasher</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sha1_method_hasher</span>
+>>>>>>> origin/main
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">__current_hasher</span> <span class="o">=</span> <span class="kc">None</span></div>
 

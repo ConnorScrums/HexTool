@@ -74,7 +74,11 @@
 <li class="toctree-l4"><a class="reference internal" href="#module-src.hashers.mid_square_method_hasher">src.hashers.mid_square_method_hasher module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-src.hashers.multiplication_method_hasher">src.hashers.multiplication_method_hasher module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-src.hashers.mumurhash_32_method_hasher">src.hashers.mumurhash_32_method_hasher module</a></li>
+<<<<<<< HEAD
 <li class="toctree-l4"><a class="reference internal" href="#module-src.hashers.pearson_hasher">src.hashers.pearson_hasher module</a></li>
+=======
+<li class="toctree-l4"><a class="reference internal" href="#module-src.hashers.sha1_hasher">src.hashers.sha1_hasher module</a></li>
+>>>>>>> origin/main
 <li class="toctree-l4"><a class="reference internal" href="#module-src.hashers">Module contents</a></li>
 </ul>
 </li>
@@ -134,9 +138,16 @@
 </li>
 </ul>
 </li>
+<<<<<<< HEAD
 <li class="toctree-l2"><a class="reference internal" href="#module-src.hashers.pearson_hasher">src.hashers.pearson_hasher module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#src.hashers.pearson_hasher.PearsonHasher"><code class="docutils literal notranslate"><span class="pre">PearsonHasher</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#src.hashers.pearson_hasher.PearsonHasher.hash"><code class="docutils literal notranslate"><span class="pre">PearsonHasher.hash()</span></code></a></li>
+=======
+<li class="toctree-l2"><a class="reference internal" href="#module-src.hashers.sha1_hasher">src.hashers.sha1_hasher module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.hashers.sha1_hasher.SHA1Hasher"><code class="docutils literal notranslate"><span class="pre">SHA1Hasher</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#src.hashers.sha1_hasher.SHA1Hasher.hash"><code class="docutils literal notranslate"><span class="pre">SHA1Hasher.hash()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#src.hashers.sha1_hasher.SHA1Hasher.rotl32"><code class="docutils literal notranslate"><span class="pre">SHA1Hasher.rotl32()</span></code></a></li>
+>>>>>>> origin/main
 </ul>
 </li>
 </ul>
@@ -326,6 +337,7 @@ hash function suitable for general hash-based lookup</p>
 </dd></dl>
 
 </section>
+<<<<<<< HEAD
 <section id="module-src.hashers.pearson_hasher">
 <span id="src-hashers-pearson-hasher-module"></span><h2>src.hashers.pearson_hasher module<a class="headerlink" href="#module-src.hashers.pearson_hasher" title="Link to this heading"></a></h2>
 <p>Pearson Hashing Algorithm</p>
@@ -352,6 +364,33 @@ bytes in the data.</p>
 </dd>
 </dl>
 </div></blockquote>
+=======
+<section id="module-src.hashers.sha1_hasher">
+<span id="src-hashers-sha1-hasher-module"></span><h2>src.hashers.sha1_hasher module<a class="headerlink" href="#module-src.hashers.sha1_hasher" title="Link to this heading"></a></h2>
+<p>SHA-1 cryptographic hash algorithm that is meant to keep data secured,
+using bitwise operations, modular additions, and compression functions.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.hashers.sha1_hasher.SHA1Hasher">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.hashers.sha1_hasher.</span></span><span class="sig-name descname"><span class="pre">SHA1Hasher</span></span><a class="reference internal" href="_modules/src/hashers/sha1_hasher.html#SHA1Hasher"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.hashers.sha1_hasher.SHA1Hasher" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#src.hashers.hasher.Hasher" title="src.hashers.hasher.Hasher"><code class="xref py py-class docutils literal notranslate"><span class="pre">Hasher</span></code></a></p>
+<p>Python implementation of the sha-1 hash algorithm</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.hashers.sha1_hasher.SHA1Hasher.hash">
+<span class="sig-name descname"><span class="pre">hash</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_bytes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="src.hashes.html#src.hashes.hash.Hash" title="src.hashes.hash.Hash"><span class="pre">Hash</span></a></span></span><a class="reference internal" href="_modules/src/hashers/sha1_hasher.html#SHA1Hasher.hash"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.hashers.sha1_hasher.SHA1Hasher.hash" title="Link to this definition"></a></dt>
+<dd><p>Calculates the hash by a concrete method for each byte and adding it to an N-bit hash.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>raw_bytes (bytes): Array of bytes of the input.</p>
+</dd>
+<dt>Returns:</dt><dd><p>The hash of the input bytes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.hashers.sha1_hasher.SHA1Hasher.rotl32">
+<span class="sig-name descname"><span class="pre">rotl32</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/hashers/sha1_hasher.html#SHA1Hasher.rotl32"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.hashers.sha1_hasher.SHA1Hasher.rotl32" title="Link to this definition"></a></dt>
+<dd><p>Bitwise left rotating the value of x by n positions</p>
+>>>>>>> origin/main
 </dd></dl>
 
 </dd></dl>

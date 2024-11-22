@@ -7,6 +7,7 @@ from .hashers.mumurhash_32_method_hasher import MurmurHash32MethodHasher
 from .hashers.folding_method_hasher import FoldingMethodHasher
 from .hashers.mid_square_method_hasher import MidSquareHasher
 from .hashers.pearson_hasher import PearsonHasher
+from .hashers.sha1_hasher import SHA1Hasher
 from .hashers.hasher import Hasher
 from .hashes.hash import Hash
 
@@ -26,6 +27,7 @@ class HexTool:
         self.folding_method_hasher: Hasher = FoldingMethodHasher()
         self.mid_square_method_hasher: Hasher = MidSquareHasher()
         self.pearson_method_hasher: Hasher = PearsonHasher()
+        self.sha1_method_hasher: Hasher = SHA1Hasher()
 
     def set_hash_method(self, hash_method: str):
         """Hashing method factory.
@@ -48,6 +50,8 @@ class HexTool:
             self.__current_hasher = self.mid_square_method_hasher
         elif hash_method == "pearson-method-hasher":
             self.__current_hasher = self.pearson_method_hasher
+        elif hash_method == "sha-1-method-hasher":
+            self.__current_hasher = self.sha1_method_hasher
         else:
             self.__current_hasher = None
 
