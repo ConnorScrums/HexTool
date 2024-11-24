@@ -1,9 +1,11 @@
 """Module providing the entry point to our HexTool application."""
 
-import os, sys
+import os
+import sys
+from datetime import timedelta
 from flask import Flask, render_template, request, flash, send_from_directory, session
-from datetime import timedelta, datetime, timezone
 from src import hex_tool, account_creation, checksum, db_utility
+
 sys.set_int_max_str_digits(0)
 
 
@@ -21,11 +23,12 @@ acc_creation = account_creation.AccountCreation()
 cksum = checksum.Checksum()
 db_utility = db_utility.DatabaseUtility()
 
+
 @app.before_request
 def make_session_permanent():
     """Set session to permanet to use session lifetime setting"""
     session.permanent = True
-    
+
 
 @app.route("/", methods=["GET", "POST"])
 def home():
@@ -49,12 +52,17 @@ def home():
                 hash_result = HexTool.use_hash_method(raw_bytes)
                 checksum_result = cksum.calculate_checksum(file)
 
-                db_utility.addHash(hash_result, f.filename, hash_method, checksum_result, session.get('username'), session.get('token'))
-                
+                db_utility.addHash(
+                    hash_result,
+                    f.filename,
+                    hash_method,
+                    checksum_result,
+                    session.get("username"),
+                    session.get("token"),
+                )
+
                 return render_template(
-                    "index.html", 
-                    hash=hash_result, 
-                    chksum=checksum_result
+                    "index.html", hash=hash_result, chksum=checksum_result
                 )
     return render_template("index.html")
 
@@ -90,6 +98,7 @@ def create_acc():
     flash("An account with that email already exists!", "failed")
     return render_template("account_creation.html")
 
+
 @app.route("/login", methods=["GET", "POST"])
 def login():
     """
@@ -97,6 +106,7 @@ def login():
     """
 
     return render_template("login.html")
+
 
 @app.route("/login_attempt", methods=["GET", "POST"])
 def login_attempt():
@@ -106,25 +116,27 @@ def login_attempt():
     formInput = request.form.to_dict()
     email = formInput["email"]
     password = formInput["psw"]
-    if acc_creation.login(email,password):
-        #Create session token
+    if acc_creation.login(email, password):
+        # Create session token
         session_token = os.urandom(24).hex()
-        session['username'] = email
-        session['token'] = session_token
+        session["username"] = email
+        session["token"] = session_token
         db_utility.setSessionToken(email, session_token)
         return render_template("index.html")
 
     return render_template("login.html", login=False)
+
 
 @app.route("/signout", methods=["GET", "POST"])
 def sign_out():
     """
     Sign the user out
     """
-    print(session.get('username'))
-    db_utility.deleteSessionToken(session.get('username'))
+    print(session.get("username"))
+    db_utility.deleteSessionToken(session.get("username"))
     session.clear()
     return render_template("index.html")
+
 
 @app.route("/hash_history", methods=["GET", "POST"])
 def hash_history():
@@ -132,9 +144,9 @@ def hash_history():
     Get the hash history for the current user
     """
     if request.method == "POST":
-        db_utility.deleteHashes(session.get('username'), session.get('token'))
+        db_utility.deleteHashes(session.get("username"), session.get("token"))
 
-    hashes = db_utility.getUserHashes(session.get('username'), session.get('token'))
+    hashes = db_utility.getUserHashes(session.get("username"), session.get("token"))
     return render_template("users_hashes.html", hashes=hashes)
 
 

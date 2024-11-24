@@ -9,6 +9,7 @@ import pymysql
 from dotenv import load_dotenv
 from .database_password_helper import DatabasePasswordHelper
 
+
 class AccountCreation:
     """Handle account creation"""
 
@@ -72,6 +73,6 @@ class AccountCreation:
             if results[0][0] == password[:45]:
                 connection.close()
                 return True
-            else:
-                connection.close()
-                return False
+            
+            connection.close()
+            return False

@@ -1,22 +1,24 @@
-import os, pymysql
+import os
+import pymysql
 from dotenv import load_dotenv
+
 
 class DatabaseUtility:
     """Handle database querys"""
 
     def connectToDatabase(self):
-       """
-       Connect to the DB, returns the connection & cursor
-       """
-       connection = pymysql.connect(
-           host=os.getenv("DB_ENDPOINT"),
-           user=os.getenv("DB_USERNAME"),
-           password=os.getenv("DB_PASSWORD"),
-           database=os.getenv("DB_NAME"),
-       )
-       connection_cursor = connection.cursor()
-       return connection, connection_cursor
-    
+        """
+        Connect to the DB, returns the connection & cursor
+        """
+        connection = pymysql.connect(
+            host=os.getenv("DB_ENDPOINT"),
+            user=os.getenv("DB_USERNAME"),
+            password=os.getenv("DB_PASSWORD"),
+            database=os.getenv("DB_NAME"),
+        )
+        connection_cursor = connection.cursor()
+        return connection, connection_cursor
+
     def getUserId(self, username, token):
         """
         Get the Users Id from the database (Primary Key)
@@ -32,7 +34,7 @@ class DatabaseUtility:
                 connection.close()
                 cursor.close()
                 return results[0][0]
-        
+
             connection.close()
             cursor.close()
             return False
@@ -59,7 +61,7 @@ class DatabaseUtility:
         Delete all hashes from the database for a user if they are logged in
         """
         if self.checkValidSession(username, token):
-            connection,cursor = self.connectToDatabase()
+            connection, cursor = self.connectToDatabase()
             id = self.getUserId(username, token)
             sql = "DELETE FROM hashes WHERE user_id = %s;"
             cursor.execute(sql, id)
@@ -82,7 +84,7 @@ class DatabaseUtility:
                 connection.close()
                 cursor.close()
                 return results
-            
+
             connection.close()
             cursor.close()
             return False
@@ -101,7 +103,7 @@ class DatabaseUtility:
             connection.close()
             cursor.close()
             return True
-        
+
         connection.close()
         cursor.close()
         return False
@@ -111,7 +113,7 @@ class DatabaseUtility:
         Delete the session token for current user after signout
         """
         connection, cursor = self.connectToDatabase()
-        sql = "UPDATE users SET session_token = NULL, last_activity = NULL WHERE username = %s"
+        sql = "UPDATE users SET session_token = NULL = NULL WHERE username = %s"
         cursor.execute(sql, username)
         connection.commit()
         connection.close()
@@ -127,9 +129,9 @@ class DatabaseUtility:
         results = cursor.fetchall()
         if results:
             connection.close()
-            cursor.close() 
+            cursor.close()
             return True
-        
+
         connection.close()
         cursor.close()
         return False
