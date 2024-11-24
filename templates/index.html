@@ -4,8 +4,11 @@
 <body>
     <form class="container" method = "post" action="{{ url_for('home') }}" enctype="multipart/form-data"> 
         <h1>Agile Team Two's Hextool</h1>
-        {% if config["USERNAME"] != "" %}
-        <p>Hello {% print(config["USERNAME"]) %}</p>
+        {% if session.get('username') != None %}
+        <p>Hello {% print(session.get('username')) %}</p>
+        {% endif %}
+        {% if timeout == True %}
+        <p>Your Session Has Expired, Please Login Again</p>
         {% endif %}
         <p>Upload a binary file to hash!</p>
         <input class="form-control form-control-lg" type="file" name="file">

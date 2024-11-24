@@ -30,8 +30,8 @@
                     <a class="nav-link active" href="{{ url_for('goto_documentation') }}">Documentation</a>
                 </li>
             </ul>
-            {% if config["USERNAME"] != "" %}
-              <div> {% print(config["USERNAME"]) %}</div>
+            {% if session.get('username') != None %}
+              <div> {% print(session.get('username')) %}</div>
             {% endif %}
             <ul class="navbar-nav">
                 <li class="nav-item dropdown">
@@ -39,7 +39,7 @@
                       Account
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        {% if config["USERNAME"] == "" %}
+                        {% if session.get('username') == None %}
                           <li><a class="dropdown-item" href="{{ url_for('login') }}">Log In</a></li>
                           <li><a class="dropdown-item" href="{{ url_for('acc_creation_render') }}">Create Account</a></li>
                         {% else %}
