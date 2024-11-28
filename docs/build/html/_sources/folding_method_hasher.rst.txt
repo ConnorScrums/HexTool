@@ -1,7 +1,0 @@
-folding\_method\_hasher module
-==============================
-
-.. automodule:: folding_method_hasher
-   :members:
-   :undoc-members:
-   :show-inheritance:

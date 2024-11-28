@@ -46,7 +46,6 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">HexTool</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="app.html">app module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="folding_method_hasher.html">folding_method_hasher module</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="src.html">src package</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="src.html#subpackages">Subpackages</a><ul class="current">
 <li class="toctree-l4 current"><a class="current reference internal" href="#">src.hashers package</a></li>
@@ -57,6 +56,7 @@
 <li class="toctree-l3"><a class="reference internal" href="src.html#module-src.account_creation">src.account_creation module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="src.html#module-src.checksum">src.checksum module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="src.html#module-src.database_password_helper">src.database_password_helper module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src.html#module-src.db_utility">src.db_utility module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="src.html#module-src.hex_tool">src.hex_tool module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="src.html#module-src">Module contents</a></li>
 </ul>
@@ -74,11 +74,8 @@
 <li class="toctree-l4"><a class="reference internal" href="#module-src.hashers.mid_square_method_hasher">src.hashers.mid_square_method_hasher module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-src.hashers.multiplication_method_hasher">src.hashers.multiplication_method_hasher module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-src.hashers.mumurhash_32_method_hasher">src.hashers.mumurhash_32_method_hasher module</a></li>
-<<<<<<< HEAD
 <li class="toctree-l4"><a class="reference internal" href="#module-src.hashers.pearson_hasher">src.hashers.pearson_hasher module</a></li>
-=======
 <li class="toctree-l4"><a class="reference internal" href="#module-src.hashers.sha1_hasher">src.hashers.sha1_hasher module</a></li>
->>>>>>> origin/main
 <li class="toctree-l4"><a class="reference internal" href="#module-src.hashers">Module contents</a></li>
 </ul>
 </li>
@@ -89,6 +86,7 @@
 <li class="toctree-l2"><a class="reference internal" href="src.html#module-src.account_creation">src.account_creation module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="src.html#module-src.checksum">src.checksum module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="src.html#module-src.database_password_helper">src.database_password_helper module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src.html#module-src.db_utility">src.db_utility module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="src.html#module-src.hex_tool">src.hex_tool module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="src.html#module-src">Module contents</a></li>
 </ul>
@@ -138,16 +136,17 @@
 </li>
 </ul>
 </li>
-<<<<<<< HEAD
 <li class="toctree-l2"><a class="reference internal" href="#module-src.hashers.pearson_hasher">src.hashers.pearson_hasher module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#src.hashers.pearson_hasher.PearsonHasher"><code class="docutils literal notranslate"><span class="pre">PearsonHasher</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#src.hashers.pearson_hasher.PearsonHasher.hash"><code class="docutils literal notranslate"><span class="pre">PearsonHasher.hash()</span></code></a></li>
-=======
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#module-src.hashers.sha1_hasher">src.hashers.sha1_hasher module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#src.hashers.sha1_hasher.SHA1Hasher"><code class="docutils literal notranslate"><span class="pre">SHA1Hasher</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#src.hashers.sha1_hasher.SHA1Hasher.hash"><code class="docutils literal notranslate"><span class="pre">SHA1Hasher.hash()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#src.hashers.sha1_hasher.SHA1Hasher.rotl32"><code class="docutils literal notranslate"><span class="pre">SHA1Hasher.rotl32()</span></code></a></li>
->>>>>>> origin/main
 </ul>
 </li>
 </ul>
@@ -337,7 +336,6 @@ hash function suitable for general hash-based lookup</p>
 </dd></dl>
 
 </section>
-<<<<<<< HEAD
 <section id="module-src.hashers.pearson_hasher">
 <span id="src-hashers-pearson-hasher-module"></span><h2>src.hashers.pearson_hasher module<a class="headerlink" href="#module-src.hashers.pearson_hasher" title="Link to this heading"></a></h2>
 <p>Pearson Hashing Algorithm</p>
@@ -364,7 +362,11 @@ bytes in the data.</p>
 </dd>
 </dl>
 </div></blockquote>
-=======
+</dd></dl>
+
+</dd></dl>
+
+</section>
 <section id="module-src.hashers.sha1_hasher">
 <span id="src-hashers-sha1-hasher-module"></span><h2>src.hashers.sha1_hasher module<a class="headerlink" href="#module-src.hashers.sha1_hasher" title="Link to this heading"></a></h2>
 <p>SHA-1 cryptographic hash algorithm that is meant to keep data secured,
@@ -390,7 +392,6 @@ using bitwise operations, modular additions, and compression functions.</p>
 <dt class="sig sig-object py" id="src.hashers.sha1_hasher.SHA1Hasher.rotl32">
 <span class="sig-name descname"><span class="pre">rotl32</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/hashers/sha1_hasher.html#SHA1Hasher.rotl32"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.hashers.sha1_hasher.SHA1Hasher.rotl32" title="Link to this definition"></a></dt>
 <dd><p>Bitwise left rotating the value of x by n positions</p>
->>>>>>> origin/main
 </dd></dl>
 
 </dd></dl>

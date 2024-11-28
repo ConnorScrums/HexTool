@@ -83,6 +83,7 @@
 <span class="kn">import</span> <span class="nn">pymysql</span>
 <span class="kn">from</span> <span class="nn">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span>
 <span class="kn">from</span> <span class="nn">.database_password_helper</span> <span class="kn">import</span> <span class="n">DatabasePasswordHelper</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">current_app</span>
 
 
 <div class="viewcode-block" id="AccountCreation">
@@ -140,6 +141,31 @@
             <span class="k">return</span> <span class="kc">True</span>
 
         <span class="k">return</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="AccountCreation.login">
+<a class="viewcode-back" href="../../src.html#src.account_creation.AccountCreation.login">[docs]</a>
+    <span class="k">def</span> <span class="nf">login</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Takes input from the webpage and attempts to validate the user in the database</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">load_dotenv</span><span class="p">()</span>
+        <span class="n">db_helper</span> <span class="o">=</span> <span class="n">DatabasePasswordHelper</span><span class="p">()</span>
+        <span class="n">connection</span><span class="p">,</span> <span class="n">cursor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">connect_to_database</span><span class="p">()</span>
+        <span class="n">password</span> <span class="o">=</span> <span class="n">db_helper</span><span class="o">.</span><span class="n">hash_password</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">does_email_exist</span><span class="p">(</span><span class="n">email</span><span class="p">,</span> <span class="n">cursor</span><span class="p">):</span>
+            <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT password FROM users WHERE username = </span><span class="si">%s</span><span class="s2">&quot;</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="p">(</span><span class="n">email</span><span class="p">))</span>
+            <span class="n">results</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+
+            <span class="k">if</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">password</span><span class="p">[:</span><span class="mi">45</span><span class="p">]:</span>
+                <span class="n">current_app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;USERNAME&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">email</span>
+                <span class="n">connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                <span class="k">return</span> <span class="kc">True</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                <span class="k">return</span> <span class="kc">False</span></div>
 </div>
 
 </pre></div>
