@@ -8,7 +8,6 @@ import os
 import pymysql
 from dotenv import load_dotenv
 from .database_password_helper import DatabasePasswordHelper
-from flask import current_app
 
 
 class AccountCreation:
@@ -72,9 +71,8 @@ class AccountCreation:
             results = cursor.fetchall()
 
             if results[0][0] == password[:45]:
-                current_app.config["USERNAME"] = email
                 connection.close()
                 return True
-            else:
-                connection.close()
-                return False
+            
+            connection.close()
+            return False

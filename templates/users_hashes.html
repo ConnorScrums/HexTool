@@ -3,7 +3,7 @@
 {% block body %}
 <body>
     <form class="container" method = "post" action="{{ url_for('hash_history') }}" enctype="multipart/form-data"> 
-{% if config["USERNAME"] != "" %}
+{% if session.get('username') != None %}
   {% if hashes %}
 
     {% for hash in hashes %}
@@ -18,7 +18,7 @@
 
   {% else %}
     <div> 
-        There are no previous hashes for: {% print(config["USERNAME"]) %}
+        There are no previous hashes for: {% print(session.get('username')) %}
         <br>
     </div>
 
