@@ -137,7 +137,7 @@ def sign_out():
     return render_template("index.html")
 
 
-@app.route("/hash_history/", methods=["GET", "POST"])
+@app.route("/hash_history", methods=["GET", "POST"])
 def hash_history():
     """
     Get the hash history for the current user
