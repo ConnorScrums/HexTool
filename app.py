@@ -1,7 +1,6 @@
 """Module providing the entry point to our HexTool application."""
 
-import os
-import sys
+import os, sys, re
 from datetime import timedelta
 from flask import Flask, render_template, request, flash, send_from_directory, session
 from src import hex_tool, account_creation, checksum, db_utility
@@ -138,13 +137,15 @@ def sign_out():
     return render_template("index.html")
 
 
-@app.route("/hash_history", methods=["GET", "POST"])
+@app.route("/hash_history/", methods=["GET", "POST"])
 def hash_history():
     """
     Get the hash history for the current user
     """
     if request.method == "POST":
-        db_utility.deleteHashes(session.get("username"), session.get("token"))
+      fileId = request.form.get('delete_hash')
+      print(fileId)
+      db_utility.deleteHash(session.get("username"), session.get("token"), fileId)
 
     hashes = db_utility.getUserHashes(session.get("username"), session.get("token"))
     return render_template("users_hashes.html", hashes=hashes)

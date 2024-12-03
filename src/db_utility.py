@@ -47,24 +47,32 @@ class DatabaseUtility:
         if self.checkValidSession(username, token):
             connection, cursor = self.connectToDatabase()
             userId = self.getUserId(username, token)
-            print("USER ID:")
-            print(userId)
-            sql = "INSERT INTO hashes (user_id, hash_result, file_name, hash_method, check_sum) VALUES (%s, %s, %s, %s, %s);"
-            record = (userId, hash_result, file_name, hash_method, check_sum)
+            sql = "SELECT * FROM hashes WHERE user_id = %s AND file_name = %s AND hash_method = %s"
+            record = (userId, file_name, hash_method)
             cursor.execute(sql, record)
             connection.commit()
+            hashExists = cursor.fetchall()
+        
+            if not hashExists:
+              sql = "INSERT INTO hashes (user_id, hash_result, file_name, hash_method, check_sum) VALUES (%s, %s, %s, %s, %s);"
+              record = (userId, hash_result, file_name, hash_method, check_sum)
+              cursor.execute(sql, record)
+              connection.commit()
+            
             connection.close()
             cursor.close()
 
-    def deleteHashes(self, username, token):
+    def deleteHash(self, username, token, fileId):
         """
-        Delete all hashes from the database for a user if they are logged in
+        Delete hash from the database for a user if they are logged in
         """
         if self.checkValidSession(username, token):
             connection, cursor = self.connectToDatabase()
             id = self.getUserId(username, token)
-            sql = "DELETE FROM hashes WHERE user_id = %s;"
-            cursor.execute(sql, id)
+            print(fileId)
+            sql = "DELETE FROM hashes WHERE file_id = %s;"
+            record = (fileId)
+            cursor.execute(sql, record)
             connection.commit()
             connection.close()
             cursor.close()

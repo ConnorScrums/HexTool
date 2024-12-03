@@ -7,14 +7,33 @@
   {% if hashes %}
 
     {% for hash in hashes %}
+    <div style=" border-radius: 25px;
+                 border: 2px solid #73AD21;
+                 padding: 20px;
+                 margin-left: 130px;
+                 margin-top: 20px;
+                 width: 500px;
+                 height: 180px; ">
       <div>File: {{ hash[2] }}</div>
       <div>Hash: {{ hash[3] }}</div>
       <div>Hash Method: {{ hash[5] }}</div>
       <div>Check Sum: {{ hash[6] }}</div>
-      <br>
-    {% endfor %}
+      <button style="background-color: #007bff;     /* Bootstrap primary blue */
+                     color: white;                  /* White text color */
+                     border: 1px solid #007bff;     /* Border matches the background color */
+                     margin: 10px;
+                     padding: 0.375rem 0.75rem;       /* Padding to give the button some height and width */
+                     font-size: 1rem;                 /* Font size similar to Bootstrap */
+                     font-weight: 400;                /* Normal font weight */
+                     text-align: center;              /* Center text inside the button */
+                     border-radius: 0.25rem;          /* Rounded corners */
+                     display: inline-block;           /* Button behaves as inline-block */
+                     cursor: pointer;                 /* Pointer cursor on hover */"
 
-    <input class="btn btn-primary" type="submit" value="Delete Hashes" style="margin-bottom: 20px; margin-top: 20px;"></input>
+              type="submit" name="delete_hash" value="{{ hash[0] }}">Delete</button>
+      <br>
+    </div>
+    {% endfor %}
 
   {% else %}
     <div> 
