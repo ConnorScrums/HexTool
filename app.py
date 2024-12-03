@@ -1,6 +1,7 @@
 """Module providing the entry point to our HexTool application."""
 
-import os, sys, re
+import os
+import sys
 from datetime import timedelta
 from flask import Flask, render_template, request, flash, send_from_directory, session
 from src import hex_tool, account_creation, checksum, db_utility
