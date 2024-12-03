@@ -37,6 +37,14 @@ src.database\_password\_helper module
    :undoc-members:
    :show-inheritance:
 
+src.db\_utility module
+----------------------
+
+.. automodule:: src.db_utility
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 src.hex\_tool module
 --------------------
 

@@ -52,6 +52,14 @@ src.hashers.mumurhash\_32\_method\_hasher module
    :undoc-members:
    :show-inheritance:
 
+src.hashers.pearson\_hasher module
+----------------------------------
+
+.. automodule:: src.hashers.pearson_hasher
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 src.hashers.sha1\_hasher module
 -------------------------------
 
