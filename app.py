@@ -144,7 +144,6 @@ def hash_history():
     """
     if request.method == "POST":
       fileId = request.form.get('delete_hash')
-      print(fileId)
       db_utility.deleteHash(session.get("username"), session.get("token"), fileId)
 
     hashes = db_utility.getUserHashes(session.get("username"), session.get("token"))
